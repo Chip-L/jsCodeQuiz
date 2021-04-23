@@ -1,0 +1,85 @@
+* {
+  box-sizing: border-box;
+
+  border: 1px dotted blue;
+}
+
+html {
+  font-size: 62.5%;
+}
+
+/* this is a flex contain that will center the panel for questions */
+body {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 70vh;
+}
+
+header {
+  flex: 1;
+  position: sticky;
+  top: 0;
+  display: flex;
+  justify-content: space-between;
+  font-size: 2.4rem;
+  padding: 0.5rem;
+}
+
+.timer {
+  flex: 0 0 auto;
+}
+
+.openingPanel {
+  border: 1px solid black;
+  padding: 10rem;
+  text-align: center;
+}
+
+h1 {
+  font-size: 3rem;
+  font-weight: bold;
+}
+
+h2 {
+  font-size: 2.4rem;
+}
+
+.startButton {
+  display: inline-block;
+  margin-top: 1rem;
+  padding: 1rem 2rem;
+  font-size: 8rem;
+  cursor: pointer;
+  text-align: center;
+  text-decoration: none;
+  outline: none;
+  color: #c0c0c0;
+  background-color: red;
+  border-radius: 50%;
+  box-shadow: 0.5rem 1rem 2rem rgb(250, 134, 134) inset,
+    0 0.8rem 1.6rem 0 rgba(0, 0, 0, 0.2), 0 0.6rem 2rem 0 rgba(0, 0, 0, 0.19);
+}
+
+.startButton:active {
+  box-shadow: 0 0.5rem #666;
+  transform: translateY(0.2rem);
+}
+
+/******** Media Queries **********/
+@media screen and (min-width: 769px) {
+  .openingPanel h1::before,
+  .openingPanel h1::after {
+    content: "✨";
+  }
+
+  .startButton {
+    opacity: 0.9;
+    transition: 0.2s;
+  }
+
+  .startButton:hover {
+    opacity: 1;
+  }
+}
