@@ -1,7 +1,7 @@
 * {
   box-sizing: border-box;
 
-  border: 1px dotted blue;
+  /* border: 1px dotted blue; */
 }
 
 html {
@@ -10,28 +10,40 @@ html {
 
 /* this is a flex contain that will center the panel for questions */
 body {
-  display: flex;
+  /* display: flex;
   flex-direction: column;
-  justify-content: center;
+  justify-content: center; */
   align-items: center;
-  height: 70vh;
+  height: 100vh;
+  margin: 0;
+  padding: 50% auto;
 }
 
 header {
-  flex: 1;
+  /* this is hidden initially, then it will display when the .openingPanel is hidden - controlled by JS. */
   position: sticky;
   top: 0;
-  display: flex;
-  justify-content: space-between;
+  display: none;
+  justify-content: space-around;
   font-size: 2.4rem;
   padding: 0.5rem;
+  height: 6%;
+  background-color: beige;
 }
 
-.timer {
+/* .timer {
   flex: 0 0 auto;
+} */
+
+main {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 6%;
 }
 
 .openingPanel {
+  flex: 0 1 auto;
   border: 1px solid black;
   padding: 10rem;
   text-align: center;
