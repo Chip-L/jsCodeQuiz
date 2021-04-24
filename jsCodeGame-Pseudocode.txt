@@ -1,0 +1,62 @@
+objQandA = {
+	question: ,
+	answerOptions: [],
+	correctAnswer: <index of Answer option>,
+	playerAnswer: <string value from answer>
+	
+	// returns if answer is correct, if not
+	checkAnswer: function () {
+		return (this.playerAnswer == this.answerOptions[this.correctAnswer);
+	},
+};
+
+questionList = []; // filled with objQandA <-- stores a randomized list of questions
+??  playerQuestions = []; // filled with indexes to the questionList
+
+let highScores = [[intials], [score], time]; // stores high scores (caps at 10 & should probably be an object)
+let questionNumber = 0; <-- tracks the question the player is on 
+let timerLength = ??;
+
+function loadQuestionList {...} <-- shove the variables in to the list (done at page load)
+loadQuestionList();
+
+function shuffleQuestionList {...} <-- randomizes the order of the list
+
+function playGame {
+	// reset the game
+	shuffleQuestionList();
+	questionNumber = 0;
+	timerLength = ??
+	
+	//start Timer <-- timer will decrement, when 0 is reached game over will pop up with answers (calls endGame function)
+	
+	for (;questionNumber < questionList.length; questionNumber++) {
+		// display question
+		// randomize answerOptions
+		// display answerOptions
+		// get the answer (how? radio button + submit? just click the item?)
+		if(!objQandA[questionNumber].checkAnswer()) {
+			timerLength -= ??
+		}
+	}
+	
+	endGame();
+}
+
+function endGame() {
+	// clearInterval(timer)
+	// set score
+	// display score
+	// show list <-- If the question was wrong, use red(?) font/background, if right use green(?) font/background
+		// questions 
+		// correct answers
+		// player answers 
+		// (enhancement) link to w3Schools for more info
+	btnNext --> showHighScores()
+}
+
+function showHighScores() {
+	// check if high score 
+		// if true: display list of scores with winner's place as a text box for entry of name/initials
+		// if false: display list of scores
+	// btnPlayAgain --> playGame()
