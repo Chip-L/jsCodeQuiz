@@ -1,3 +1,10 @@
+
+button effects:
+https://codemyui.com/angled-button-with-glint-effect-on-hover/
+https://codemyui.com/light-sweep-effect-on-button-hover/ 	<-- has cool background effect too
+
+https://fonts.google.com/specimen/Scada?query=lemon#standard-styles
+
 objQandA = {
 	question: ,
 	answerOptions: [],
@@ -20,7 +27,8 @@ let timerLength = ??;
 function loadQuestionList {...} <-- shove the variables in to the list (done at page load)
 loadQuestionList();
 
-function shuffleQuestionList {...} <-- randomizes the order of the list
+function shuffleQuestionList {...} <-- randomizes the order of the list (https://javascript.info/task/shuffle)
+(https://medium.com/@nitinpatel_20236/how-to-shuffle-correctly-shuffle-an-array-in-javascript-15ea3f84bfb)
 
 function playGame {
 	// reset the game
@@ -60,3 +68,4 @@ function showHighScores() {
 		// if true: display list of scores with winner's place as a text box for entry of name/initials
 		// if false: display list of scores
 	// btnPlayAgain --> playGame()
+}
