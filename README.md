@@ -4,6 +4,10 @@
 
 Build a timed coding quiz with multiple-choice questions. This app will run in the browser and will feature dynamically updated HTML and CSS powered by JavaScript code. It will have a clean, polished, and responsive user interface.
 
+I started with pseudocode: [jsCodeGame-Pseudocode.txt](./assets/misc/jsCodeGame-Pseudocode.txt)
+
+I had a hard time with getting the JSON that I used to store the questions in to work properly. I couldn't get it to import the file without adding extra overhead. But the object I stored wouldn't escape '\n' and '\"' charcters correctly so I substitued those characters with placeholders and then swapped them back out when I was displaying the lines in HTML.
+
 ## Table of Contents
 
 - [User Story](#user-story)
@@ -59,4 +63,4 @@ Study Group:
 - Alex Jurgs
 - Tarik Maggio
 
-Questions: I'll be honest, I stole these questions directly from W3Schools (https://www.w3schools.com/quiztest/quiztest.asp?qtest=JS)"
+Questions: I'll be honest, I stole these questions directly from W3Schools (https://www.w3schools.com/quiztest/quiztest.asp?qtest=JS)
