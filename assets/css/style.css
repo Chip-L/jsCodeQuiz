@@ -42,8 +42,7 @@ main {
   margin-top: 6%;
 }
 
-.openingPanel,
-.quizPanel {
+.openingPanel {
   flex: 0 1 auto;
   border: 1px solid black;
   padding: 10rem;
@@ -78,6 +77,36 @@ h2 {
 .startButton:active {
   box-shadow: 0 0.5rem #666;
   transform: translateY(0.2rem);
+}
+
+.quizPanel {
+  display: none;
+
+  padding: 2rem;
+  font-size: 2.4rem;
+  background: beige;
+  border: 1px solid black;
+}
+
+.question,
+.answers {
+  background: whitesmoke;
+  border: 1px solid black;
+  padding: 1rem;
+
+  margin-bottom: 5rem;
+}
+
+.question {
+  display: flex;
+}
+
+#questionNum {
+  margin-right: 2rem;
+}
+
+.answers {
+  list-style-type: none;
 }
 
 /******** Media Queries **********/

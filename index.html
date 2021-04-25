@@ -8,36 +8,38 @@
 
     <link rel="stylesheet" href="./assets/css/style.css" />
   </head>
+
   <body>
     <header>
       <div class="logo">JS Quiz</div>
       <div class="timer">20s</div>
     </header>
-<main>
-    <section class="openingPanel">
-      <h1>Welcome to the Javascript Code quiz!!!</h1>
-      <h2>Where the computer will test your JS knowledge!</h2>
-      <p>Click, "Start", when you are ready to begin the quiz!</p>
-      <div class="startButton">Start</button>
+    <main>
+      <!-- opening panel section - displays when screen load -->
+      <section class="openingPanel">
+        <h1>Welcome to the Javascript Code quiz!!!</h1>
+        <h2>Where the computer will test your JS knowledge!</h2>
+        <p>Click, "Start", when you are ready to begin the quiz!</p>
+        <div class="startButton">Start</div>
       </section>
 
+      <!-- quizPanel - displays after the start button is pressed - holds the questions and answers -->
+      <section class="quizPanel">
+        <div class="question">
+          <p id="questionNum">1</p>
+          <p id="questionText">
+            Lorem ipsum dolor sit amet consectetur adipisicing elit. Nostrum,
+            asperiores.
+          </p>
+        </div>
+        <ul class="answers">
+          <li>test</li>
+          <li>test</li>
+          <li>test</li>
+          <li>test</li>
+        </ul>
+      </section>
+    </main>
     <script src="./assets/js/script.js"></script>
-    <section class="quizPanel"
-    >
-    <p class="question"></p>
-    <div class="answers">
-      <!-- <input type="radio" id="answer1" name="answer1" value="answer1">
-<label for="answer1"></label><br>
-<input type="radio" id="answer2" name="answer2" value="answer2">
-<label for="answer2"></label><br>
-<input type="radio" id="answer3" name="answer3" value="answer3">
-<label for="answer3"></label>
-<input type="radio" id="answer4" name="answer4" value="answer4">
-<label for="answer4"></label> -->
-    </div>
-    
-  </section>
-  
-</main>
   </body>
 </html>
