@@ -1,6 +1,6 @@
 // This is the opening display panel
 let openDisp = document.querySelector(".opening");
-let startBtn = document.querySelector(".startButton");
+let startBtn = document.querySelector(".start");
 let main = document.querySelector("main");
 let header = document.querySelector("header");
 let quizDisp = document.querySelector(".quiz");
@@ -9,13 +9,13 @@ let submitBtn = document.querySelector(".submit");
 
 // timer variables - need accessed from multiple functions
 let timer;
+let timer2;
 let timeLeft;
 
 // question variabes
 let questionNum;
 
 startBtn.addEventListener("click", startQuiz);
-submitBtn.addEventListener("click", submitHighscore);
 
 function startQuiz() {
   // local variables
@@ -36,7 +36,7 @@ function startQuiz() {
 
   // display screen
   displayTimer(timeLeft);
-  countdown();
+  setTime();
 
   // start for loop
   displayQuestion(
@@ -45,28 +45,26 @@ function startQuiz() {
   );
   //end for loop
 
-  displayGameOver(false);
+  // displayGameOver(false); <-- resting counter... don't turn on until ready to actually call
   //function of site has been passed to displayGameOver()
 }
 
 function displayGameOver(outOfTime) {
-  clearInterval(timer);
+  clearInterval(timer2);
   // quizDisp.setAttribute("style","display: none");
 }
 
-// from class work 04.10-Stu_Timers-Intervals
-function countdown() {
-  console.log("countdown");
+function setTime() {
   // call a function to be executed every 1000 milliseconds
-  timer = setInterval(function () {
+  timer2 = setInterval(function () {
     timeLeft--;
-    console.log(timeLeft);
+    console.log("setTime");
 
     displayTimer(timeLeft);
 
     if (timeLeft === 0) {
       // Stops execution of action at set interval
-      clearInterval(timer);
+      clearInterval(timer2);
       // Calls function to display the end of game
       displayGameOver(true);
     }
@@ -76,7 +74,7 @@ function countdown() {
 // populates the timer on the screen
 // ToDo: make this display minutes and seconds
 function displayTimer(timeLeft) {
-  console.log("displayTimer");
+  // console.log("displayTimer");
   let timerEl = document.querySelector(".timer");
 
   if (timeLeft !== 1) {
@@ -104,5 +102,6 @@ function createHighScoreDiv() {
   //   document
   //     .querySelector(".gotHighScore")
   //     .setAttribute("style", "display: block");
+  //   submitBtn.addEventListener("click", submitHighscore);
   // }
 }

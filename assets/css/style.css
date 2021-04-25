@@ -138,6 +138,10 @@ li {
   list-style-type: none;
 }
 
+.endGame {
+  display: none;
+}
+
 .gotHighScore input {
   display: inline-block;
   size: 4;
