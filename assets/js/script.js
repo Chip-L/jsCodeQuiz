@@ -16,45 +16,52 @@ let timer;
 let timeLeft;
 
 // question variabes
-let question; // stores json object that is "list" so reference question.list[];
 let questionList;
 let questionNum;
 
 startBtn.addEventListener("click", startQuiz);
 
 function startQuiz() {
-  // local variables
-
   //initialize other variables
+  questionNum = 0;
   timeLeft = 50;
 
   // hide .openingPanel and display header and .quizPanel
   openDisp.setAttribute("style", "display: none");
-  main.setAttribute("style", "margin-top: none");
   header.setAttribute("style", "visibility: visible");
   quizDisp.setAttribute("style", "display: block");
 
   //enter questions to site
   let question = JSON.parse(JS_Obj); // reads in an array "list"
   questionList = question.list; // eliminate array "list"
+  // fix placeholders
+  for (let i = 0; i < questionList.length; i++) {
+    console.log(questionList[i]);
+    questionList[i].question = questionList[i].question
+      .replaceAll("**n", "\n")
+      .replaceAll("|", '"');
+    for (let j = 0; j < questionList[i].answerOptions.length; j++) {
+      questionList[i].answerOptions[j] = questionList[i].answerOptions[j]
+        .replaceAll("**n", "\n")
+        .replaceAll("|", '"');
+    }
+    questionList[i].realAnswer = questionList[i].realAnswer
+      .replaceAll("**n", "\n")
+      .replaceAll("|", '"');
+    console.log(questionList[i]);
+  }
 
-  // pick questions
+  // ToDo: shuffle questions
 
   // display screen
   displayTimer(timeLeft);
   setTime();
 
-  // start for loop
-  for (questionNum = 0; questionNum < questionList.length; questionNum++) {
-    displayQuestion(questionNum, questionList[1].question);
-  }
-  //end for loop
-
-  // displayGameOver(false); <-- resting counter... don't turn on until ready to actually call
-  //function of site has been passed to displayGameOver()
+  // Pass functionality to nextQuestion which will iterate through the questions
+  displayQuestion();
 }
 
-function displayGameOver(outOfTime) {
+function displayGameOver(isOutOfTime) {
   clearInterval(timer);
   // quizDisp.setAttribute("style","display: none");
 }
@@ -89,12 +96,31 @@ function displayTimer(timeLeft) {
   return;
 }
 
-function displayQuestion(qNum, qText) {
-  // add 1 to qNum because it is an index, so it starts count at 0
-  document.querySelector("#questionNum").innerHTML = qNum + 1 + ".";
-  document.querySelector("#questionText").innerHTML = qText
-    .replace("**n", "\n")
-    .replace("|", '"');
+// this is called when the answer is submitted
+function displayNextQuestion(event) {
+  // ToDo: add answer to questionlist obj
+  if (questionNum < questionList.length) {
+    questionNum++;
+    displayQuestion();
+  } else {
+    displayGameOver(false);
+  }
+}
+
+function displayQuestion() {
+  let answerList = document.querySelector(".quiz ul.answers");
+  questionNum = 1;
+  // add 1 to questionNum because it is an index, so it starts count at 0
+  document.querySelector("#questionNum").textContent = questionNum + 1 + ".";
+  /* can't use innerHTML here because I'm actually displaying HTML text in questions and that will cause the element to actually display.\
+     Need to decode placeholders for **n = \n and | = " due to funky JSON text */
+  document.querySelector("#questionText").textContent =
+    questionList[questionNum].question;
+  for (let i = 0; i < questionList[questionNum].answerOptions.length; i++) {
+    let newLi = document.createElement("li");
+    newLi.textContent = questionList[questionNum].answerOptions[i];
+    // newLi.setAttribute();
+  }
 }
 
 /* This will create a div for the Game Over screen that will update the questions solved and the time taken. */
