@@ -9,7 +9,6 @@ let submitBtn = document.querySelector(".submit");
 
 // timer variables - need accessed from multiple functions
 let timer;
-let timer2;
 let timeLeft;
 
 // question variabes
@@ -50,13 +49,13 @@ function startQuiz() {
 }
 
 function displayGameOver(outOfTime) {
-  clearInterval(timer2);
+  clearInterval(timer);
   // quizDisp.setAttribute("style","display: none");
 }
 
 function setTime() {
   // call a function to be executed every 1000 milliseconds
-  timer2 = setInterval(function () {
+  timer = setInterval(function () {
     timeLeft--;
     console.log("setTime");
 
@@ -64,7 +63,7 @@ function setTime() {
 
     if (timeLeft === 0) {
       // Stops execution of action at set interval
-      clearInterval(timer2);
+      clearInterval(timer);
       // Calls function to display the end of game
       displayGameOver(true);
     }

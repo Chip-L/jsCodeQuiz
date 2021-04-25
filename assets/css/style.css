@@ -57,11 +57,28 @@ main {
   /* min-width: var(--viewWidth); */
 }
 
+/* common panel settings */
 .panel {
   min-width: var(--viewWidth);
   background: beige;
 }
 
+/* common button settings */
+.button {
+  opacity: 0.9;
+  transition: 0.2s;
+}
+
+.button:hover {
+  opacity: 1;
+}
+
+.button:active {
+  box-shadow: 0 0.5rem #666;
+  transform: translateY(0.2rem);
+}
+
+/* opening panel settings */
 .opening {
   /* flex: 0 1 auto; */
   padding: 10rem;
@@ -82,7 +99,7 @@ h2 {
   font-size: 2.4rem;
 }
 
-.startButton {
+.start {
   display: inline-block;
   margin-top: 1rem;
   padding: 1rem 2rem;
@@ -98,14 +115,13 @@ h2 {
     0 0.8rem 1.6rem 0 rgba(0, 0, 0, 0.2), 0 0.6rem 2rem 0 rgba(0, 0, 0, 0.19);
 }
 
-.startButton:active {
-  box-shadow: 0 0.5rem #666;
-  transform: translateY(0.2rem);
+.quiz,
+.endGame {
+  display: none;
 }
 
+/* quiz panel settings */
 .quiz {
-  display: none;
-
   padding: 2rem;
   font-size: 2.4rem;
 }
@@ -138,10 +154,6 @@ li {
   list-style-type: none;
 }
 
-.endGame {
-  display: none;
-}
-
 .gotHighScore input {
   display: inline-block;
   size: 4;
@@ -166,14 +178,5 @@ li {
   .opening h1::before,
   .opening h1::after {
     content: "✨";
-  }
-
-  .startButton {
-    opacity: 0.9;
-    transition: 0.2s;
-  }
-
-  .startButton:hover {
-    opacity: 1;
   }
 }
