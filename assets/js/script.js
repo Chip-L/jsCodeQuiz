@@ -124,6 +124,7 @@ function displayQuestion() {
   for (let i = 0; i < questionList[questionNum].answerOptions.length; i++) {
     let newLi = document.createElement("li");
     newLi.textContent = questionList[questionNum].answerOptions[i];
+    newLi.setAttribute("class", "button");
     newLi.setAttribute("id", "answer" + i);
     answerList.appendChild(newLi);
     answerList.children[i].addEventListener("click", displayNextQuestion);

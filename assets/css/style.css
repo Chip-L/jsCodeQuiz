@@ -154,6 +154,14 @@ li {
   list-style-type: none;
 }
 
+.answers li {
+  padding: 1rem;
+  background: linear-gradient(to bottom right, transparent, #80808044);
+
+  border-radius: 1rem;
+  margin: 1rem 0;
+}
+
 .gotHighScore input {
   display: inline-block;
   size: 4;
