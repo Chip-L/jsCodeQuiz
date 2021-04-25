@@ -111,7 +111,8 @@ h2 {
 }
 
 .question,
-.answers {
+.answers,
+.score {
   background: whitesmoke;
   border: 1px solid black;
   padding: 1rem;
@@ -127,8 +128,19 @@ h2 {
   margin-right: 2rem;
 }
 
+#questionText,
+li {
+  /* added pre so that I can have line breaks in my questions/answers */
+  white-space: pre;
+}
+
 .answers {
   list-style-type: none;
+}
+
+.gotHighScore input {
+  display: inline-block;
+  size: 4;
 }
 
 /******** Media Queries **********/

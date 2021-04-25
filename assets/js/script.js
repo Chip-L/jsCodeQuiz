@@ -5,18 +5,23 @@ let main = document.querySelector("main");
 let header = document.querySelector("header");
 let quizDisp = document.querySelector(".quiz");
 let answersDisp = document.querySelector("answers");
+let submitBtn = document.querySelector(".submit");
 
 // timer variables - need accessed from multiple functions
 let timer;
 let timeLeft;
 
+// question variabes
+let questionNum;
+
 startBtn.addEventListener("click", startQuiz);
+submitBtn.addEventListener("click", submitHighscore);
 
 function startQuiz() {
   // local variables
-  let questionNum = 0;
 
   //initialize other variables
+  questionNum = 0;
   timeLeft = 50;
 
   // hide .openingPanel and display header and .quizPanel
@@ -29,26 +34,35 @@ function startQuiz() {
 
   // pick questions
 
+  // display screen
+  displayTimer(timeLeft);
+  countdown();
+
+  // start for loop
   displayQuestion(
     questionNum,
     "This is the question's text\nand this is the second line."
   );
+  //end for loop
 
-  countdown();
+  displayGameOver(false);
+  //function of site has been passed to displayGameOver()
+}
+
+function displayGameOver(outOfTime) {
+  clearInterval(timer);
+  // quizDisp.setAttribute("style","display: none");
 }
 
 // from class work 04.10-Stu_Timers-Intervals
 function countdown() {
-  let timerEl = document.querySelector(".timer");
-
+  console.log("countdown");
   // call a function to be executed every 1000 milliseconds
   timer = setInterval(function () {
     timeLeft--;
-    if (timeLeft !== 1) {
-      timerEl.textContent = timeLeft + " seconds";
-    } else {
-      timerEl.textContent = timeLeft + " second";
-    }
+    console.log(timeLeft);
+
+    displayTimer(timeLeft);
 
     if (timeLeft === 0) {
       // Stops execution of action at set interval
@@ -59,15 +73,36 @@ function countdown() {
   }, 1000);
 }
 
-function displayQuestion(qNum, qText) {
-  // add 1 to qNum because it is an index, so it starts count at 0
-  document.querySelector("#questionNum").textContent = qNum + 1 + ".";
-  document.querySelector("#questionText").textContent = qText;
+// populates the timer on the screen
+// ToDo: make this display minutes and seconds
+function displayTimer(timeLeft) {
+  console.log("displayTimer");
+  let timerEl = document.querySelector(".timer");
+
+  if (timeLeft !== 1) {
+    timerEl.textContent = timeLeft + " seconds";
+  } else {
+    timerEl.textContent = timeLeft + " second";
+  }
+  return;
 }
 
-function displayGameOver(outOfTime) {
-  // if(!outOfTime) {
-  clearInterval(timer);
+function displayQuestion(qNum, qText) {
+  // add 1 to qNum because it is an index, so it starts count at 0
+  document.querySelector("#questionNum").innerHTML = qNum + 1 + ".";
+  document.querySelector("#questionText").innerHTML = qText;
+}
+
+/* This will create a div for the Game Over screen that will update the questions solved and the time taken. */
+function createHighScoreDiv() {
+  // set scores
+  document.querySelector("#qAnswered").innerHTML = questionNum;
+  // ToDo: show as min/sec
+  document.querySelector("#timeTaken").innerHTML = timeLeft;
+
+  // if (on highscore list) {
+  //   document
+  //     .querySelector(".gotHighScore")
+  //     .setAttribute("style", "display: block");
   // }
-  // quizDisp.setAttribute("style","display: none");
 }
