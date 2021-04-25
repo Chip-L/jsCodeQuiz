@@ -1,3 +1,7 @@
+:root {
+  --viewWidth: 100vw;
+}
+
 * {
   box-sizing: border-box;
 
@@ -17,36 +21,56 @@ body {
   height: 100vh;
   margin: 0;
   padding: 50% auto;
+
+  font-family: "Scada", sans-serif;
 }
 
 header {
-  /* this is hidden initially, then it will display when the .openingPanel is hidden - controlled by JS. */
+  /* this is visibility = hidden initially, so it keeps the positioning of the .openingPanel. Then it will display when the .openingPanel is hidden - controlled by JS. */
   position: sticky;
   top: 0;
-  display: none;
-  justify-content: space-around;
+  visibility: hidden;
+  display: flex;
+  justify-content: center;
   font-size: 2.4rem;
-  padding: 0.5rem;
-  height: 6%;
-  background-color: beige;
+  background: beige;
+  border-bottom: 1px solid black;
 }
 
-/* .timer {
-  flex: 0 0 auto;
-} */
+.sizeContainer {
+  min-width: var(--viewWidth);
+  display: flex;
+  justify-content: space-between;
+  padding: 0.5rem;
+  height: 6%;
+}
+
+.logo {
+  font-weight: bold;
+}
 
 main {
   display: flex;
   justify-content: center;
   align-items: center;
   margin-top: 6%;
+  /* min-width: var(--viewWidth); */
 }
 
-.openingPanel {
-  flex: 0 1 auto;
-  border: 1px solid black;
+.panel {
+  min-width: var(--viewWidth);
+  background: beige;
+}
+
+.opening {
+  /* flex: 0 1 auto; */
   padding: 10rem;
   text-align: center;
+
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
 }
 
 h1 {
@@ -79,13 +103,11 @@ h2 {
   transform: translateY(0.2rem);
 }
 
-.quizPanel {
+.quiz {
   display: none;
 
   padding: 2rem;
   font-size: 2.4rem;
-  background: beige;
-  border: 1px solid black;
 }
 
 .question,
@@ -110,9 +132,23 @@ h2 {
 }
 
 /******** Media Queries **********/
+@media screen and (min-width: 376px) {
+  .timer::after {
+    content: " remaining";
+  }
+}
+
 @media screen and (min-width: 769px) {
-  .openingPanel h1::before,
-  .openingPanel h1::after {
+  :root {
+    --viewWidth: 60vw;
+  }
+
+  .panel {
+    border: 1px solid black;
+  }
+
+  .opening h1::before,
+  .opening h1::after {
     content: "✨";
   }
 

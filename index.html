@@ -6,17 +6,25 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>JS Code Quiz</title>
 
+    <link rel="preconnect" href="https://fonts.gstatic.com" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Scada&display=swap"
+      rel="stylesheet"
+    />
+
     <link rel="stylesheet" href="./assets/css/style.css" />
   </head>
 
   <body>
     <header>
-      <div class="logo">JS Quiz</div>
-      <div class="timer">20s</div>
+      <div class="sizeContainer">
+        <div class="logo">JS Quiz</div>
+        <div class="timer"></div>
+      </div>
     </header>
     <main>
       <!-- opening panel section - displays when screen load -->
-      <section class="openingPanel">
+      <section class="opening panel">
         <h1>Welcome to the Javascript Code quiz!!!</h1>
         <h2>Where the computer will test your JS knowledge!</h2>
         <p>Click, "Start", when you are ready to begin the quiz!</p>
@@ -24,7 +32,7 @@
       </section>
 
       <!-- quizPanel - displays after the start button is pressed - holds the questions and answers -->
-      <section class="quizPanel">
+      <section class="quiz panel">
         <div class="question">
           <p id="questionNum">1</p>
           <p id="questionText">
