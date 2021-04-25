@@ -108,7 +108,7 @@
     {
       "question": "How can you add a comment in a JavaScript?",
       "answerOptions": [
-        "This is a comment ",
+        "'This is a comment ",
         "<!—This is a comment— > ",
         "//This is a comment"
       ],
