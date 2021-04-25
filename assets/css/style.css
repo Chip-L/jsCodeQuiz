@@ -140,7 +140,8 @@ h2 {
 }
 
 .quiz,
-.endGame {
+.endGame,
+.highScore {
   display: none;
 }
 
@@ -216,6 +217,8 @@ li {
   justify-content: space-between;
   padding: 0.5rem 4rem;
 }
+
+.highScore 
 
 /******** Media Queries **********/
 @media screen and (min-width: 376px) {

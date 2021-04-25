@@ -7,6 +7,7 @@ let header = document.querySelector("header");
 let openDisp = document.querySelector(".opening");
 let quizDisp = document.querySelector(".quiz");
 let endOfGameDisp = document.querySelector(".endGame");
+let highScoreDisp = document.querySelector(".highScore");
 
 // assign events to buttons on start page
 document.querySelector("#openingStart").addEventListener("click", startQuiz);
@@ -23,15 +24,42 @@ let timeLeft;
 let questionList;
 let questionNum;
 
+function showScreen(screenName) {
+  switch (screenName) {
+    case "Quiz":
+      openDisp.setAttribute("style", "display: none");
+      header.setAttribute("style", "visibility: visible");
+      quizDisp.setAttribute("style", "display: block");
+      endOfGameDisp.setAttribute("style", "display: none");
+      highScoreDisp.setAttribute("style", "display: none");
+      break;
+
+    case "GameOver":
+      openDisp.setAttribute("style", "display: none");
+      quizDisp.setAttribute("style", "display: none");
+      header.setAttribute("style", "visibility: visible");
+      endOfGameDisp.setAttribute("style", "display: flex");
+      highScoreDisp.setAttribute("style", "display: none");
+      break;
+
+    case "HighScore":
+      openDisp.setAttribute("style", "display: none");
+      header.setAttribute("style", "visibility: hidden");
+      quizDisp.setAttribute("style", "display: none");
+      endOfGameDisp.setAttribute("style", "display: none");
+      highScoreDisp.setAttribute("style", "display: block");
+      break;
+    default:
+      console.log("Error: ShowScreen switch has wrong name");
+  }
+}
+
 function startQuiz() {
   //initialize other variables
   questionNum = 0;
   timeLeft = timeAllowed;
 
-  // hide .openingPanel and display header and .quizPanel
-  openDisp.setAttribute("style", "display: none");
-  header.setAttribute("style", "visibility: visible");
-  quizDisp.setAttribute("style", "display: block");
+  showScreen("Quiz");
 
   //enter questions to site
   let question = JSON.parse(JS_Obj); // reads in an array "list"
@@ -134,8 +162,7 @@ function displayQuestion() {
 
 function displayGameOver(isOutOfTime) {
   clearInterval(timer);
-  quizDisp.setAttribute("style", "display: none");
-  endOfGameDisp.setAttribute("style", "display: flex");
+  showScreen("GameOver");
 
   let timeTaken = timeAllowed - timeLeft;
   console.log(timeAllowed + "-" + timeLeft + "=" + timeTaken);
@@ -166,4 +193,5 @@ function createHighScoreDiv() {
 
 function displayHighScores() {
   console.log("displayHighScores");
+  showScreen("HighScore");
 }
