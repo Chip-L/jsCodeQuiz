@@ -65,8 +65,12 @@ main {
 
 /* common button settings */
 .button {
-  opacity: 0.9;
+  opacity: 0.8;
   transition: 0.2s;
+  cursor: pointer;
+  border: 1px solid black;
+  border-radius: 1rem;
+  padding: 1rem;
 }
 
 .button:hover {
@@ -88,6 +92,7 @@ main {
   flex-direction: column;
   justify-content: center;
   align-items: center;
+  position: relative;
 }
 
 h1 {
@@ -98,20 +103,39 @@ h1 {
 h2 {
   font-size: 2.4rem;
 }
-
+.opening p {
+  font-size: 1.5rem;
+}
 .start {
-  display: inline-block;
+  color: #c0c0c0;
+  /* background-color: red; */
+  background: linear-gradient(to bottom right, red, rgb(247 51 51));
+  box-shadow: 0.5rem 1rem 2rem rgb(247 124 124) inset,
+    0 0.8rem 1.6rem 0 rgba(0, 0, 0, 0.2), 0 0.6rem 2rem 0 rgba(0, 0, 0, 0.19);
+}
+
+.opening .start {
   margin-top: 1rem;
   padding: 1rem 2rem;
   font-size: 8rem;
-  cursor: pointer;
-  text-align: center;
-  text-decoration: none;
-  outline: none;
-  color: #c0c0c0;
-  background-color: red;
   border-radius: 50%;
-  box-shadow: 0.5rem 1rem 2rem rgb(250, 134, 134) inset,
+  border: none;
+}
+
+.opening .viewHighScores {
+  font-size: 2.4rem;
+  position: absolute;
+  bottom: 1rem;
+  right: 1rem;
+}
+
+.viewHighScores {
+  background: linear-gradient(
+    to bottom right,
+    rgb(26 162 26),
+    rgb(121 252 121)
+  );
+  box-shadow: 0.5rem 1rem 2rem rgb(121, 252, 121) inset,
     0 0.8rem 1.6rem 0 rgba(0, 0, 0, 0.2), 0 0.6rem 2rem 0 rgba(0, 0, 0, 0.19);
 }
 
@@ -127,8 +151,7 @@ h2 {
 }
 
 .question,
-.answers,
-.score {
+.answers {
   background: whitesmoke;
   border: 1px solid black;
   padding: 1rem;
@@ -155,16 +178,43 @@ li {
 }
 
 .answers li {
-  padding: 1rem;
   background: linear-gradient(to bottom right, transparent, #80808044);
-
-  border-radius: 1rem;
   margin: 1rem 0;
+}
+
+.endGame {
+  flex-direction: column;
+  align-items: center;
+  padding: 1.5rem;
+
+  font-size: 2.4rem;
+}
+
+#gameOver {
+  font-size: 8rem;
+  color: red;
+  margin-bottom: 1rem;
+}
+
+.endGame p {
+  text-align: center;
+}
+
+.gotHighScore {
+  display: none;
 }
 
 .gotHighScore input {
   display: inline-block;
   size: 4;
+}
+
+/* ToDo: make sticky so the buttons remain on the screen but the gotHighScore scrolls off */
+.keepHere {
+  width: var(--viewWidth);
+  display: flex;
+  justify-content: space-between;
+  padding: 0.5rem 4rem;
 }
 
 /******** Media Queries **********/
