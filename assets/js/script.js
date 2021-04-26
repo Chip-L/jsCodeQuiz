@@ -10,7 +10,7 @@ let endOfGameDisp = document.querySelector(".endGame");
 let highScoreDisp = document.querySelector(".highScore");
 
 // timer variables - need accessed from multiple functions
-let timeAllowed = 50; // this is in seconds
+let timeAllowed = 500; // this is in seconds
 let timePenalty = 15; // this is in seconds
 let timer;
 let timeLeft;
@@ -169,8 +169,8 @@ function displayNextQuestion(event) {
 
   // get next question
   // question list is 1 behind actual display position. when I get to the last item, I displayed 25 but questionNum == 24 after recording questionNum 25's answer, go to game over screen
-  if (questionNum < questionList.length - 1) {
-    questionNum++;
+  questionNum++;
+  if (questionNum < questionList.length) {
     // console.log("click exit:" + questionNum);
     displayQuestion();
   } else {
@@ -183,18 +183,30 @@ function displayGameOver() {
   showScreen("GameOver");
 
   let score = Math.round((correctCount / questionList.length) * 100);
+  let totalQsMsg = "";
+  let timeRemainingMsg = "";
 
-  console.log(correctCount / questionList.length);
-  console.log(score);
+  // set messages
+  if (correctCount === questionList.length) {
+    totalQsMsg = "Wow! You got all " + questionList.length + " correct!";
 
-  let timeTaken = timeAllowed - timeLeft;
-  console.log(timeAllowed + "-" + timeLeft + "=" + timeTaken);
+    if (timeLeft > 0) {
+      timeRemainingMsg = "You even had " + timeLeft + " remaining!";
+    }
+  } else {
+    totalQsMsg =
+      "Keep working! You got " +
+      correctCount +
+      " out of " +
+      questionList.length +
+      " correct.";
+  }
 
+  // put it on the screen
   document.querySelector("#scoreValue").textContent = score + "%";
-  document.querySelector("#qAnswered").textContent = questionNum;
-  document.querySelector("#totalQs").textContent = questionList.length;
-
-  // document.querySelector("#timeRemaing").textContent = timeTaken;
+  // console.log(totalQsMsg);
+  document.querySelector("#totalQs").textContent = totalQsMsg;
+  document.querySelector("#timeRemaining").textContent = timeRemainingMsg;
 
   document.querySelector("#gameOverStart").addEventListener("click", startQuiz);
   document
