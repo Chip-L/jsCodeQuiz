@@ -64,3 +64,5 @@ Study Group:
 - Tarik Maggio
 
 Questions: I'll be honest, I stole these questions directly from W3Schools (https://www.w3schools.com/quiztest/quiztest.asp?qtest=JS)
+
+Makan. (2020, May 9). Glowing Flames Text Animation. CodeMyUI. https://codemyui.com/glowing-flames-text-animation/.

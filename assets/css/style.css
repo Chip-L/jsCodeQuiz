@@ -260,7 +260,12 @@ li {
   }
 }
 
-/*****************************/
+/**************
+This is taken from: 
+https://codemyui.com/glowing-flames-text-animation/
+Image: Glowing Flames Text Animation GIF
+Code by: Makan from Codepen
+***************/
 .fire {
   margin: 50px auto;
   width: 80%;
