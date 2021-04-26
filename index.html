@@ -6,12 +6,18 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>JS Code Quiz</title>
 
+    <!-- Fonts -->
     <link rel="preconnect" href="https://fonts.gstatic.com" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Akronim&display=swap"
+      rel="stylesheet"
+    />
     <link
       href="https://fonts.googleapis.com/css2?family=Scada&display=swap"
       rel="stylesheet"
     />
 
+    <!-- Style Sheets -->
     <link rel="stylesheet" href="./assets/css/style.css" />
   </head>
 
@@ -49,7 +55,9 @@
 
       <!-- endGame panel - displays when the timer runs out or all questions are answered -->
       <section class="endGame panel">
-        <p id="gameOver">Game Over</p>
+        <div class="dark fire">
+          <h1 class="Blazing" contenteditable="true">Game Over</h1>
+        </div>
         <p class="score">You got <span id="scoreValue"></span></p>
         <p>
           <!-- You answered <span id="qAnswered"></span> out of -->
