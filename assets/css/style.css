@@ -21,6 +21,7 @@ body {
   height: 100vh;
   margin: 0;
   padding: 50% auto;
+  background: beige;
 
   font-family: "Scada", sans-serif;
 }
@@ -71,6 +72,8 @@ main {
   border: 1px solid black;
   border-radius: 1rem;
   padding: 1rem;
+  text-align: center;
+  margin-bottom: 0.5rem;
 }
 
 .button:hover {
@@ -170,8 +173,10 @@ h2 {
 
 #questionText,
 li {
-  /* added pre so that I can have line breaks in my questions/answers */
-  white-space: pre;
+  /* added pre-wrap so that I can have line breaks in my questions/answers AND it will automatically wrap my text */
+  white-space: pre-wrap;
+  overflow-x: auto;
+  word-wrap: break-word;
 }
 
 .answers {
@@ -181,6 +186,7 @@ li {
 .answers li {
   background: linear-gradient(to bottom right, transparent, #80808044);
   margin: 1rem 0;
+  text-align: left;
 }
 
 .endGame {
@@ -214,6 +220,8 @@ li {
 .keepHere {
   width: var(--viewWidth);
   display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
   justify-content: space-between;
   padding: 0.5rem 4rem;
 }
@@ -224,6 +232,16 @@ li {
 @media screen and (min-width: 376px) {
   .timer::after {
     content: " remaining";
+  }
+}
+
+@media screen and (min-width: 425px) {
+  body {
+    background: whitesmoke;
+  }
+
+  .keepHere {
+    flex-direction: row;
   }
 }
 
