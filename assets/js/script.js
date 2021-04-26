@@ -73,7 +73,7 @@ function setTime() {
       timeLeft = 0;
       displayTimer(timeLeft);
       // Calls function to display the end of game
-      displayGameOver(true);
+      displayGameOver();
     }
   }, 1000);
 }
@@ -174,39 +174,32 @@ function displayNextQuestion(event) {
     // console.log("click exit:" + questionNum);
     displayQuestion();
   } else {
-    displayGameOver(false);
+    displayGameOver();
   }
 }
 
-function displayGameOver(isOutOfTime) {
+function displayGameOver() {
   clearInterval(timer);
   showScreen("GameOver");
+
+  let score = Math.round((correctCount / questionList.length) * 100);
+
+  console.log(correctCount / questionList.length);
+  console.log(score);
 
   let timeTaken = timeAllowed - timeLeft;
   console.log(timeAllowed + "-" + timeLeft + "=" + timeTaken);
 
+  document.querySelector("#scoreValue").textContent = score + "%";
   document.querySelector("#qAnswered").textContent = questionNum;
-  document.querySelector("#timeTaken").textContent = timeTaken;
+  document.querySelector("#totalQs").textContent = questionList.length;
+
+  // document.querySelector("#timeRemaing").textContent = timeTaken;
 
   document.querySelector("#gameOverStart").addEventListener("click", startQuiz);
   document
     .querySelector("#gameOverHighScore")
     .addEventListener("click", displayHighScores);
-}
-
-/* This will create a div for the Game Over screen that will update the questions solved and the time taken. */
-function createHighScoreDiv() {
-  // set scores
-  document.querySelector("#qAnswered").innerHTML = questionNum;
-  // ToDo: show as min/sec
-  document.querySelector("#timeTaken").innerHTML = timeLeft;
-
-  // if (on highscore list) {
-  //   document
-  //     .querySelector(".gotHighScore")
-  //     .setAttribute("style", "display: block");
-  //   submitBtn.addEventListener("click", submitHighscore);
-  // }
 }
 
 function displayHighScores() {

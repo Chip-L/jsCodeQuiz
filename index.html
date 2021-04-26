@@ -28,7 +28,10 @@
         <h1>Welcome to the Javascript Code quiz!!!</h1>
         <h2>Where the computer will test your JS knowledge!</h2>
         <p>Click, "Start", when you are ready to begin the quiz!</p>
-        <p><strong>Note:</strong> Each wrong answer will cost you 15seconds!</p>
+        <p>
+          <strong>Note:</strong> Each wrong answer will cost you
+          <span id="timePenalty"></span> seconds!
+        </p>
         <div class="start button" id="openingStart">Start</div>
         <div class="button viewHighScores" id="openingHighScore">
           View High Scores
@@ -47,9 +50,10 @@
       <!-- endGame panel - displays when the timer runs out or all questions are answered -->
       <section class="endGame panel">
         <p id="gameOver">Game Over</p>
+        <p class="score">You got <span id="scoreValue"></span></p>
         <p>
-          You answered <span id="qAnswered"></span> question in
-          <span id="timeTaken"></span>!
+          You answered <span id="qAnswered"></span> out of
+          <span id="totalQs"></span>! <span id="timeRemaing"></span>
         </p>
         <section class="gotHighScore">
           <p class="gotHighScore">Congratulations! You got a highscore.</p>
