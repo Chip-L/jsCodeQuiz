@@ -7,7 +7,7 @@ let highScoreDisp = document.querySelector(".highScore");
 let submitBtn = document.querySelector(".submit");
 
 // timer variables - need accessed from multiple functions
-let timeAllowed = 500; // this is in seconds
+let timeAllowed = 240; // this is in seconds
 let timePenalty = 15; // this is in seconds
 let timer;
 let timeLeft;
@@ -215,8 +215,6 @@ function dispGetHighScore() {
   let gotHighScore = false;
   let highScoreList = getHighScoreList();
 
-  console.log(highScoreList);
-
   //is highscore??
   if (highScoreList.length < 10) {
     gotHighScore = true;
@@ -246,7 +244,7 @@ function dispGetHighScore() {
 }
 
 function recordHighScore(event) {
-  console.log("record high score fn--submitted?", hasBeenSubmitted);
+  // console.log("record high score fn--submitted?", hasBeenSubmitted);
   event.preventDefault(); // stop screen refresh
 
   if (!hasBeenSubmitted) {
@@ -260,8 +258,7 @@ function recordHighScore(event) {
     objScore.initials = initialsInput.value.trim();
     objScore.score = score;
 
-    console.log(highScoreList);
-    // add score to the beginning of the array, then sort the array
+    // add score to the beginning of the array, then sort the array to keep latest tie first
     highScoreList.unshift(objScore);
     //sort array (array.sort() or for loop that compares i to i+1 and swap if needed)
     highScoreList.sort(function (a, b) {
@@ -285,6 +282,30 @@ function displayHighScores() {
 
   //show highscore list
   let highScoreList = getHighScoreList();
+  let tblHighScoreList = document.querySelector("#tblHighScoreList");
+
+  // add header
+  tblHighScoreList.innerHTML = "<tr><th>Initials</th><th>Score</th></tr>";
+
+  // ensure there is at least 1 empty object
+  if (highScoreList.length === 0) {
+    highScoreList.push("{initials:'',score:0}");
+  }
+
+  console.log(highScoreList);
+  // add the objects from highScoreList to the table
+  for (let i = 0; i < highScoreList.length; i++) {
+    let tr = document.createElement("tr");
+    let thInitials = document.createElement("th");
+    let thScore = document.createElement("th");
+
+    thInitials.textContent = highScoreList[i].initials;
+    thScore.textContent = highScoreList[i].score;
+
+    tr.appendChild(thInitials);
+    tr.appendChild(thScore);
+    tblHighScoreList.appendChild(tr);
+  }
 
   document
     .querySelector("#highScoreStart")
