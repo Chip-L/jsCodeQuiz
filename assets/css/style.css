@@ -21,6 +21,10 @@ body {
   font-family: "Scada", sans-serif;
 }
 
+p {
+  margin: 1rem 0;
+}
+
 header {
   /* this is visibility = hidden initially, so it keeps the positioning of the .openingPanel. Then it will display when the .openingPanel is hidden - controlled by JS. */
   position: sticky;
@@ -207,11 +211,28 @@ li {
 
 .gotHighScore {
   display: none;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+  padding: 2rem;
+}
+
+.gotHighScore form {
+  padding: 1rem 0;
+  text-align: center;
 }
 
 .gotHighScore input {
-  display: inline-block;
-  size: 4;
+  width: 10rem;
+  font-size: 2.4rem;
+  text-align: center;
+}
+
+.submit {
+  margin: 1rem;
+  background: linear-gradient(to bottom right, red, orange);
+  box-shadow: 0.5rem 1rem 2rem yellow inset,
+    0 0.8rem 1.6rem 0 rgba(0, 0, 0, 0.2), 0 0.6rem 2rem 0 rgba(0, 0, 0, 0.19);
 }
 
 /* ToDo: make sticky so the buttons remain on the screen but the gotHighScore scrolls off */
@@ -222,74 +243,6 @@ li {
   flex-wrap: wrap;
   justify-content: space-between;
   padding: 0.5rem 4rem;
-}
-
-/* .highScore  */
-
-/******** Media Queries **********/
-@media screen and (min-width: 321px) {
-  .Blazing {
-    font-size: 9rem;
-  }
-}
-@media screen and (min-width: 376px) {
-  .timer::after {
-    content: " remaining";
-  }
-
-  .Blazing {
-    font-size: 10rem;
-  }
-}
-
-@media screen and (min-width: 426px) {
-  body {
-    background: whitesmoke;
-  }
-
-  main {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    margin: 3% auto;
-  }
-
-  .opening {
-    padding: 10rem;
-  }
-
-  .keepHere {
-    flex-direction: row;
-  }
-
-  .fire {
-    height: 20rem;
-  }
-
-  .Blazing {
-    line-height: 5rem;
-  }
-}
-
-@media screen and (min-width: 769px) {
-  :root {
-    --viewWidth: 60vw;
-  }
-
-  .panel {
-    border: 1px solid black;
-  }
-
-  .opening h1::before,
-  .opening h1::after {
-    content: "✨";
-  }
-}
-
-@media screen and (min-width: 102rem) {
-  :root {
-    --viewWidth: 102rem;
-  }
 }
 
 /**************
@@ -357,5 +310,68 @@ Code by: Makan from Codepen
   100% {
     text-shadow: 0 3px 20px red, 0 0 20px red, 0 0 10px orange, 0 0 0 yellow,
       0 0 5px yellow, -2px -5px 5px yellow, 4px -10px 10px yellow;
+  }
+}
+
+/******** Media Queries **********/
+@media screen and (min-width: 321px) {
+  .Blazing {
+    font-size: 9rem;
+  }
+}
+@media screen and (min-width: 376px) {
+  .timer::after {
+    content: " remaining";
+  }
+}
+
+@media screen and (min-width: 426px) {
+  body {
+    background: whitesmoke;
+  }
+
+  main {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    margin: 3% auto;
+  }
+
+  .opening {
+    padding: 10rem;
+  }
+
+  .keepHere {
+    flex-direction: row;
+  }
+
+  .fire {
+    height: 20rem;
+  }
+
+  .Blazing {
+    line-height: 5rem;
+    font-size: 15rem;
+  }
+}
+
+@media screen and (min-width: 769px) {
+  :root {
+    --viewWidth: 60vw;
+  }
+
+  .panel {
+    border: 1px solid black;
+  }
+
+  .opening h1::before,
+  .opening h1::after {
+    content: "✨";
+  }
+}
+
+@media screen and (min-width: 102rem) {
+  :root {
+    --viewWidth: 102rem;
   }
 }

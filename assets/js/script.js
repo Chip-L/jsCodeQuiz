@@ -206,6 +206,7 @@ let highScoreList = JSON.parse(localStorage.getItem("highScores")) || [];
 
 function dispGetHighScore(score) {
   console.log("get high score fn ", score);
+
   // check to see if high score
   //{[{"initials":"xxx", "score":1}, {...}]}
   let highScoreSection = document.querySelector("section.gotHighScore");
@@ -227,7 +228,7 @@ function dispGetHighScore(score) {
   console.log(scorePosition);
   if (scorePosition <= 10) {
     //get score
-    highScoreSection.setAttribute("style", "display: block");
+    highScoreSection.setAttribute("style", "display: flex");
     console.log("open screen");
 
     submitBtn.addEventListener("click", function () {
