@@ -4,6 +4,7 @@ let openDisp = document.querySelector(".opening");
 let quizDisp = document.querySelector(".quiz");
 let endOfGameDisp = document.querySelector(".endGame");
 let highScoreDisp = document.querySelector(".highScore");
+let submitBtn = document.querySelector(".submit");
 
 // timer variables - need accessed from multiple functions
 let timeAllowed = 500; // this is in seconds
@@ -15,6 +16,14 @@ let timeLeft;
 let questionList = makeQuestionArray();
 let questionNum;
 let correctCount;
+let checkAnswer = (qNum) =>
+  questionList[qNum].userAnswer === questionList[qNum].realAnswer;
+
+// Highscore variables
+let getHighScoreList = () =>
+  JSON.parse(localStorage.getItem("highScores")) || [];
+let score;
+let hasBeenSubmitted; // prevent entering initials multiple tiems
 
 // assign events to buttons on start page
 document.querySelector("#openingStart").addEventListener("click", startQuiz);
@@ -100,6 +109,7 @@ function startQuiz() {
   questionNum = 0;
   correctCount = 0;
   timeLeft = timeAllowed;
+  hasBeenSubmitted = false;
 
   showScreen("Quiz");
 
@@ -137,9 +147,6 @@ function displayQuestion() {
   }
 }
 
-let checkAnswer = (qNum) =>
-  questionList[qNum].userAnswer === questionList[qNum].realAnswer;
-
 // this is called when the answer is submitted and will go back to the display anwer
 function displayNextQuestion(event) {
   // record the user's answer
@@ -167,9 +174,9 @@ function displayGameOver() {
   clearInterval(timer);
   showScreen("GameOver");
 
-  let score = Math.round((correctCount / questionList.length) * 100);
   let totalQsMsg = "";
   let timeRemainingMsg = "";
+  score = Math.round((correctCount / questionList.length) * 100);
 
   // set messages
   if (correctCount === questionList.length) {
@@ -189,7 +196,6 @@ function displayGameOver() {
 
   // put it on the screen
   document.querySelector("#scoreValue").textContent = score + "%";
-  // console.log(totalQsMsg);
   document.querySelector("#totalQs").textContent = totalQsMsg;
   document.querySelector("#timeRemaining").textContent = timeRemainingMsg;
 
@@ -198,67 +204,91 @@ function displayGameOver() {
     .querySelector("#gameOverHighScore")
     .addEventListener("click", displayHighScores);
 
-  console.log(score);
-  dispGetHighScore(score);
+  // show the got high score section?
+  dispGetHighScore();
 }
 
-let highScoreList = JSON.parse(localStorage.getItem("highScores")) || [];
-
-function dispGetHighScore(score) {
-  console.log("get high score fn ", score);
-
+function dispGetHighScore() {
   // check to see if high score
-  //{[{"initials":"xxx", "score":1}, {...}]}
   let highScoreSection = document.querySelector("section.gotHighScore");
-  let submitBtn = document.querySelector(".submit");
-  let scorePosition = 11;
+  let initialsInput = document.querySelector("#initials");
+  let gotHighScore = false;
+  let highScoreList = getHighScoreList();
 
   console.log(highScoreList);
-  if (highScoreList.length === 0) {
-    scorePosition = 0;
+
+  //is highscore??
+  if (highScoreList.length < 10) {
+    gotHighScore = true;
   } else {
     for (let i = 0; i < highScoreList.length; i++) {
       if (score > highScoreList[i].score) {
-        scorePosition = i;
-        break;
+        gotHighScore = true;
+        break; // found a highscore - get out.
       }
     }
   }
 
-  console.log(scorePosition);
-  if (scorePosition <= 10) {
+  console.log("open screen? ", gotHighScore);
+  if (gotHighScore) {
     //get score
     highScoreSection.setAttribute("style", "display: flex");
-    console.log("open screen");
+    initialsInput.value = "";
+    submitBtn.setAttribute("style", "display: block");
 
-    submitBtn.addEventListener("click", function () {
-      console.log("click submit");
-      recordHighScore(scorePosition, score);
-    });
+    document
+      .querySelector(".submit")
+      .addEventListener("click", recordHighScore);
+    document
+      .querySelector(".gotHighScore form")
+      .addEventListener("submit", recordHighScore);
   }
 }
 
-function recordHighScore(scorePosition, score) {
-  console.log("record high score fn");
-  let objScore = { initials: "", score: 0 };
+function recordHighScore(event) {
+  console.log("record high score fn--submitted?", hasBeenSubmitted);
+  event.preventDefault(); // stop screen refresh
 
-  let initialsInput = document.querySelector("#initials");
+  if (!hasBeenSubmitted) {
+    hasBeenSubmitted = !hasBeenSubmitted;
 
-  objScore.initials = initialsInput.value.trim();
-  objScore.score = score;
+    let highScoreList = getHighScoreList();
+    let objScore = { initials: "", score: 0 };
 
-  highScoreList.splice(scorePosition, 0, objScore);
-  if (highScoreList.length > 10) {
-    highScoreList.length = 10; // truncate to keep at 10
+    let initialsInput = document.querySelector("#initials");
+
+    objScore.initials = initialsInput.value.trim();
+    objScore.score = score;
+
+    console.log(highScoreList);
+    // add score to the beginning of the array, then sort the array
+    highScoreList.unshift(objScore);
+    //sort array (array.sort() or for loop that compares i to i+1 and swap if needed)
+    highScoreList.sort(function (a, b) {
+      return b.score - a.score;
+    });
+
+    // keep only the top 10
+    if (highScoreList.length > 10) {
+      highScoreList.length = 10;
+    }
+
+    //display high score section to get initials
+    localStorage.setItem("highScores", JSON.stringify(highScoreList));
+    // remove button so it can't be submitted a second time.
+    submitBtn.setAttribute("style", "display: none");
   }
-
-  //display high score section to get initials
-  localStorage.setItem("highScores", JSON.stringify(highScoreList));
 }
 
 function displayHighScores() {
-  console.log("displayHighScores");
   showScreen("HighScore");
+
+  //show highscore list
+  let highScoreList = getHighScoreList();
+
+  document
+    .querySelector("#highScoreStart")
+    .addEventListener("click", startQuiz);
 }
 
 // I originally tried to do this with a JSON, but it made an  ugly block of text. Furthermore, I had to hack my way around the quotes and new lines by using placeholders: \n==**n \" = |
