@@ -23,6 +23,19 @@ document
   .addEventListener("click", displayHighScores);
 document.querySelector("#timePenalty").textContent = timePenalty;
 
+function secsToMins(secs) {
+  let m = Math.floor(secs / 60);
+  if (m === 0) {
+    m = "0";
+  }
+  let s = Math.floor(secs % 60);
+  if (s < 10) {
+    s = "0" + s;
+  }
+
+  return m + ":" + s;
+}
+
 // ensure proper screens (and header) are displayed for each panel
 function showScreen(screenName) {
   switch (screenName) {
@@ -75,17 +88,11 @@ function setTime() {
 }
 
 // populates the timer on the screen
-// ToDo: make this display minutes and seconds
 function displayTimer(timeLeft) {
   // console.log("displayTimer");
   let timerEl = document.querySelector(".timer");
 
-  if (timeLeft !== 1) {
-    timerEl.textContent = timeLeft + " seconds";
-  } else {
-    timerEl.textContent = timeLeft + " second";
-  }
-  return;
+  timerEl.textContent = secsToMins(timeLeft);
 }
 
 function startQuiz() {
@@ -169,7 +176,7 @@ function displayGameOver() {
     totalQsMsg = "Wow! You got all " + questionList.length + " correct!";
 
     if (timeLeft > 0) {
-      timeRemainingMsg = "You even had " + timeLeft + " remaining!";
+      timeRemainingMsg = "You even had " + secsToMins(timeLeft) + " remaining!";
     }
   } else {
     totalQsMsg =
@@ -190,6 +197,62 @@ function displayGameOver() {
   document
     .querySelector("#gameOverHighScore")
     .addEventListener("click", displayHighScores);
+
+  console.log(score);
+  dispGetHighScore(score);
+}
+
+let highScoreList = JSON.parse(localStorage.getItem("highScores")) || [];
+
+function dispGetHighScore(score) {
+  console.log("get high score fn ", score);
+  // check to see if high score
+  //{[{"initials":"xxx", "score":1}, {...}]}
+  let highScoreSection = document.querySelector("section.gotHighScore");
+  let submitBtn = document.querySelector(".submit");
+  let scorePosition = 11;
+
+  console.log(highScoreList);
+  if (highScoreList.length === 0) {
+    scorePosition = 0;
+  } else {
+    for (let i = 0; i < highScoreList.length; i++) {
+      if (score > highScoreList[i].score) {
+        scorePosition = i;
+        break;
+      }
+    }
+  }
+
+  console.log(scorePosition);
+  if (scorePosition <= 10) {
+    //get score
+    highScoreSection.setAttribute("style", "display: block");
+    console.log("open screen");
+
+    submitBtn.addEventListener("click", function () {
+      console.log("click submit");
+      recordHighScore(scorePosition, score);
+    });
+  }
+}
+
+function recordHighScore(scorePosition, score) {
+  console.log("record high score fn");
+  let objScore = { initials: "", score: 0 };
+
+  let initialsInput = document.querySelector("#initials");
+
+  objScore.initials = initialsInput.value.trim();
+  objScore.score = score;
+
+  highScoreList.splice(scorePosition, 0, objScore);
+  if (highScoreList.length > 10) {
+    highScoreList.length = 10; // truncate to keep at 10
+  }
+
+  //display high score section to get initials
+  localStorage.setItem("highScores", JSON.stringify(highScoreList));
 }
 
 function displayHighScores() {

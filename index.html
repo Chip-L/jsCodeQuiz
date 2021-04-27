@@ -64,19 +64,13 @@
           <span id="totalQs"></span> <span id="timeRemaining"></span>
         </p>
 
-        <section class="gotHighScore">
-          <p class="gotHighScore">Congratulations! You got a highscore.</p>
-          <div class="gotHighScore">
-            <label for="initals">
-              Please enter your initals (3 letters):
+        <section class="gotHighScore panel">
+          <p>Congratulations! You got a highscore.</p>
+          <div>
+            <label for="initials">
+              Please enter your initials (3 letters):
             </label>
-            <input
-              type="text"
-              name="initials"
-              id="initals"
-              autofocus
-              required
-            />
+            <input type="text" id="initials" max="3" />
           </div>
           <div class="submit button">Submit</div>
         </section>
