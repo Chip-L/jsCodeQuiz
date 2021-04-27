@@ -227,9 +227,18 @@ li {
 /* .highScore  */
 
 /******** Media Queries **********/
+@media screen and (min-width: 321px) {
+  .Blazing {
+    font-size: 9rem;
+  }
+}
 @media screen and (min-width: 376px) {
   .timer::after {
     content: " remaining";
+  }
+
+  .Blazing {
+    font-size: 10rem;
   }
 }
 
@@ -251,6 +260,14 @@ li {
 
   .keepHere {
     flex-direction: row;
+  }
+
+  .fire {
+    height: 20rem;
+  }
+
+  .Blazing {
+    line-height: 5rem;
   }
 }
 
@@ -282,16 +299,16 @@ Image: Glowing Flames Text Animation GIF
 Code by: Makan from Codepen
 ***************/
 .fire {
-  margin: 50px auto;
+  /* margin: 50px auto; */
   width: 80%;
-  max-width: 1000px;
-  height: 200px;
+  /* max-width: 1000px; */
+  /* height: 200px; */
 
-  background-position: center center;
-  background-size: 1000px 200px;
-  border-radius: 10px;
+  /* background-position: center center; */
+  /* background-size: 1000px 200px; */
+  /* border-radius: 10px; */
   font-family: "Akronim";
-  overflow: hidden;
+  /* overflow: hidden; */
   text-align: center;
   vertical-align: middle;
 }
@@ -307,8 +324,8 @@ Code by: Makan from Codepen
   margin: 0;
 
   color: rgb(255, 115, 0);
-  font-size: 100px;
-  line-height: 50px;
+  font-size: 6.3rem;
+  /* line-height: 50px; */
   min-width: 50px;
   outline: none;
   vertical-align: middle;
