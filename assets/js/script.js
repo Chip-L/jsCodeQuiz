@@ -7,7 +7,7 @@ let highScoreDisp = document.querySelector(".highScore");
 let submitBtn = document.querySelector(".submit");
 
 // timer variables - need accessed from multiple functions
-let timeAllowed = 240; // this is in seconds
+let timeAllowed = 120; // this is in seconds
 let timePenalty = 15; // this is in seconds
 let timer;
 let timeLeft;
@@ -289,7 +289,7 @@ function displayHighScores() {
 
   // ensure there is at least 1 empty object
   if (highScoreList.length === 0) {
-    highScoreList.push("{initials:'',score:0}");
+    highScoreList.push({ initials: " ", score: 0 });
   }
 
   console.log(highScoreList);
