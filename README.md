@@ -10,7 +10,7 @@ I had a hard time with getting the JSON that I used to store the questions in to
 
 The rest of the work was pretty smooth. I had fun with formatting. The pages are all responsive. I found some fun code to work with for CSS formatting.
 
-I wanted to add a screen that listed the correct answers along with how the answers were entered. I also intended to shuffle the questions and the answers so that they weren't the same everytime.
+I wanted to add a screen that listed the correct answers along with how the answers were entered. I also intended to shuffle the questions and the answers so that they weren't the same everytime, but I ran out of time and they weren't requirements.
 
 ## Table of Contents
 
