@@ -53,8 +53,6 @@ THEN I can save my initials and my score
 
 Completed site: [https://chip-l.github.io/jsCodeQuiz/]
 
-[Working Page](/assets/images/passwordGeneratorCompleted.jpg)
-
 ## Credits
 
 Study Group:
