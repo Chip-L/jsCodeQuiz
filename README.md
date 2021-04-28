@@ -78,4 +78,4 @@ Makan. (2020, May 9). Glowing Flames Text Animation. CodeMyUI. https://codemyui.
 
 ![Game Over Screen](./assets/misc/GameOverScreenshot.jpg)
 
-![High Score Screen](./assets/misc/HighScoreScreenshot.jpg)
+![High Score Screen](./assets/misc/HighScoresScreenshot.jpg)
