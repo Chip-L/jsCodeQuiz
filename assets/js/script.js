@@ -70,7 +70,7 @@ function showScreen(screenName) {
       header.setAttribute("style", "visibility: hidden");
       quizDisp.setAttribute("style", "display: none");
       endOfGameDisp.setAttribute("style", "display: none");
-      highScoreDisp.setAttribute("style", "display: block");
+      highScoreDisp.setAttribute("style", "display: flex");
       break;
     default:
       console.log("Error: ShowScreen switch has wrong name");
@@ -296,14 +296,14 @@ function displayHighScores() {
   // add the objects from highScoreList to the table
   for (let i = 0; i < highScoreList.length; i++) {
     let tr = document.createElement("tr");
-    let thInitials = document.createElement("th");
-    let thScore = document.createElement("th");
+    let tdInitials = document.createElement("td");
+    let tdScore = document.createElement("td");
 
-    thInitials.textContent = highScoreList[i].initials;
-    thScore.textContent = highScoreList[i].score;
+    tdInitials.textContent = highScoreList[i].initials;
+    tdScore.textContent = highScoreList[i].score;
 
-    tr.appendChild(thInitials);
-    tr.appendChild(thScore);
+    tr.appendChild(tdInitials);
+    tr.appendChild(tdScore);
     tblHighScoreList.appendChild(tr);
   }
 
