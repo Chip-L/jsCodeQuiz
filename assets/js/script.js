@@ -481,11 +481,11 @@ function makeQuestionArray() {
       question: "How do you find the number with the highest value of x and y?",
       answerOptions: [
         "top(x, y)",
-        "Math.max(xf y)",
+        "Math.max(x, y)",
         "Math.ceil(x, y)",
         "ceil(x, y)",
       ],
-      realAnswer: "Math.max(xf y)",
+      realAnswer: "Math.max(x, y)",
       userAnswer: "",
     },
     {
