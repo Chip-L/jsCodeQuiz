@@ -6,11 +6,11 @@ Build a timed coding quiz with multiple-choice questions. This app will run in t
 
 I started with pseudocode: [jsCodeGame-Pseudocode.txt](./assets/misc/jsCodeGame-Pseudocode.txt)
 
-I had a hard time with getting the JSON that I used to store the questions in to work properly. I couldn't get it to import the file without adding extra overhead. But the object I stored wouldn't escape '\n' and '\"' charcters correctly so I substitued those characters with placeholders and then swapped them back out when I was displaying the lines in HTML. I actually went back and ditched the JSON for the questions and just made a giant array of manually entered questions.
+I had a hard time with getting the JSON that I used to store the questions in to work properly. I couldn't get it to import the file without adding extra overhead. But the object I stored wouldn't escape '\n' and '\"' characters correctly so I substituted those characters with placeholders and then swapped them back out when I was displaying the lines in HTML. I actually went back and ditched the JSON for the questions and just made a giant array of manually entered questions.
 
 The rest of the work was pretty smooth. I had fun with formatting. The pages are all responsive. I found some fun code to work with for CSS formatting.
 
-I wanted to add a screen that listed the correct answers along with how the answers were entered. I also intended to shuffle the questions and the answers so that they weren't the same everytime, but I ran out of time and they weren't requirements.
+I wanted to add a screen that listed the correct answers along with how the answers were entered. I also intended to shuffle the questions and the answers so that they weren't the same every time, but I ran out of time and they weren't requirements.
 
 ## Table of Contents
 
