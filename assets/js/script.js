@@ -12,7 +12,7 @@ let timePenalty = 15; // this is in seconds
 let timer;
 let timeLeft;
 
-// question variabes
+// question variables
 let questionList = makeQuestionArray();
 let questionNum;
 let correctCount;
@@ -23,7 +23,7 @@ let checkAnswer = (qNum) =>
 let getHighScoreList = () =>
   JSON.parse(localStorage.getItem("highScores")) || [];
 let score;
-let hasBeenSubmitted; // prevent entering initials multiple tiems
+let hasBeenSubmitted; // prevent entering initials multiple items
 
 // assign events to buttons on start page
 document.querySelector("#openingStart").addEventListener("click", startQuiz);
@@ -147,10 +147,10 @@ function displayQuestion() {
   }
 }
 
-// this is called when the answer is submitted and will go back to the display anwer
+// this is called when the answer is submitted and will go back to the display answer
 function displayNextQuestion(event) {
   // record the user's answer
-  questionList[questionNum].userAnswer = event.toElement.innerText;
+  questionList[questionNum].userAnswer = event.target.textContent;
 
   // check for penalty
   if (checkAnswer(questionNum)) {
@@ -325,12 +325,12 @@ function makeQuestionArray() {
       question:
         'What is the correct JavaScript syntax to change the content of the HTML element below?\n\n<p id = "demo">This is a demonstration.</p>',
       answerOptions: [
-        'documentgetElement("p").innerHTML = "Hello World!";',
-        'document.getElementByld("demo").innerHTML = "Hello World!";',
+        'document.getElement("p").innerHTML = "Hello World!";',
+        'document.getElementById("demo").innerHTML = "Hello World!";',
         'document.getElementByName("p").innerHTML = "Hello World!";',
         '#demo.innerHTML = "Hello World!";',
       ],
-      realAnswer: 'document.getElementByld("demo").innerHTML = "Hello World!";',
+      realAnswer: 'document.getElementById("demo").innerHTML = "Hello World!";',
       userAnswer: "",
     },
     {
@@ -482,7 +482,7 @@ function makeQuestionArray() {
       answerOptions: [
         "top(x, y)",
         "Math.max(xf y)",
-        "Math.ceilfx, y)",
+        "Math.ceil(x, y)",
         "ceil(x, y)",
       ],
       realAnswer: "Math.max(xf y)",
