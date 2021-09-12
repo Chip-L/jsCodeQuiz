@@ -1,0 +1,767 @@
+{
+  "reactJSList": [
+    {
+      "question": "Q1. If you want to import just the Component from the React library, what syntax do you use?",
+      "answerOption": [
+        "<code>import React.Component from 'react'</code>",
+        "<code>import [ Component ] from 'react'</code>",
+        "<code>import Component from 'react'</code>",
+        "<code>import { Component } from 'react'</code>"
+      ],
+      "realAnswer": "<code>import { Component } from 'react'</code>",
+      "userAnswer": ""
+    },
+    {
+      "question": "Q2. If a function component should always render the same way given the same props, what is a simple performance optimization available for it?",
+      "answerOption": [
+        "Wrap it in the `React.memo` higher-order component.",
+        "Implement the `useReducer` Hook.",
+        "Implement the `useMemo` Hook.",
+        "Implement the `shouldComponentUpdate` lifecycle method."
+      ],
+      "realAnswer": "Wrap it in the `React.memo` higher-order component.",
+      "userAnswer": ""
+    },
+    {
+      "question": "Q3. How do you fix the syntax error that results from running this code?\n\n<code>\nconst person =(firstName, lastName) =>\n\n{\n  first: firstName,\n  last: lastName\n}\nconsole.log(person(\"Jill\", \"Wilson\"))</code>",
+      "answerOption": [
+        "Wrap the object in parentheses.",
+        "Call the function from another file.",
+        "Add a return statement before the first curly brace.",
+        "Replace the object with an array."
+      ],
+      "realAnswer": "Wrap the object in parentheses.",
+      "userAnswer": ""
+    },
+    {
+      "question": "Q4. If you see the following import in a file, what is being used for state management in the component?\n\n<code>import React, {useState} from 'react';</code>",
+      "answerOption": [
+        "React Hooks",
+        "stateful components",
+        "math",
+        "class components"
+      ],
+      "realAnswer": "React Hooks",
+      "userAnswer": ""
+    },
+    {
+      "question": "Q5. Using object literal enhancement, you can put values back into an object. When you log person to the console, what is the output?\n\n<code>\nconst name = \"Rachel\";\nconst age = 31;\nconst person = { name, age };\nconsole.log(person);</code>",
+      "answerOption": [
+        "<code>{{name: \"Rachel\", age: 31}}</code>",
+        "<code>{name: \"Rachel\", age: 31}</code>",
+        "<code>{person: \"Rachel\", person: 31}}</code>",
+        "<code>{person: {name: \"Rachel\", age: 31}}</code>"
+      ],
+      "realAnswer": "<code>{name: \"Rachel\", age: 31}</code>",
+      "userAnswer": ""
+    },
+    {
+      "question": "Q6. What is the testing library most often associated with React?",
+      "answerOption": ["Mocha", "Chai", "Sinon", "Jest"],
+      "realAnswer": "Jest",
+      "userAnswer": ""
+    },
+    {
+      "question": "Q7. To get the first item from the array (\"cooking\") using array destructuring, how do you adjust this line?\n\n<code>\nconst topics = [\"cooking\", \"art\", \"history\"];</code>",
+      "answerOption": [
+        "<code>const first = [\"cooking\", \"art\", \"history\"]</code>",
+        "<code>const [] = [\"cooking\", \"art\", \"history\"]</code>",
+        "<code>const [, first][\"cooking\", \"art\", \"history\"]</code>",
+        "<code>const [first] = [\"cooking\", \"art\", \"history\"]</code>"
+      ],
+      "realAnswer": "const [first] = [\"cooking\", \"art\", \"history\"]</code>",
+      "userAnswer": ""
+    },
+    {
+      "question": "Q8. How do you handle passing through the component tree without having to pass props down manually at every level?",
+      "answerOption": [
+        "React Send",
+        "React Pinpoint",
+        "React Router",
+        "React Context"
+      ],
+      "realAnswer": "React Context",
+      "userAnswer": ""
+    },
+    {
+      "question": "Q9. What should the console read when the following code is run?\n\n<code>\nconst [, , animal] = [\"Horse\", \"Mouse\", \"Cat\"];\nconsole.log(animal);</code>",
+      "answerOption": ["Horse", "Cat", "Mouse", "undefined"],
+      "realAnswer": "Cat",
+      "userAnswer": ""
+    },
+    {
+      "question": "10. What is the name of the tool used to take JSX and turn it into createElement calls?",
+      "answerOption": ["JSX Editor", "ReactDOM", "Browser Buddy", "Babel"],
+      "realAnswer": "Babel",
+      "userAnswer": ""
+    },
+    {
+      "question": "11. Why might you use useReducer over useState in a React component?",
+      "answerOption": [
+        "when you want to replace Redux",
+        "when you need to manage more complex state in an app",
+        "when you want to improve performance",
+        "when you want to break your production app"
+      ],
+      "realAnswer": "when you need to manage more complex state in an app",
+      "userAnswer": ""
+    },
+    {
+      "question": "12. Which props from the props object is available to the component with the following syntax?\n\n<code>\n<Message {...props} /></code>",
+      "answerOption": [
+        "any that have not changed",
+        "all of them",
+        "child props",
+        "any that have changed"
+      ],
+      "realAnswer": "all of them",
+      "userAnswer": ""
+    },
+    {
+      "question": "13. Consider the following code from React Router. What do you call :id in the path prop?\n\n<code>\n<Route path=\"/:id\" /></code>",
+      "answerOption": [
+        "This is a route modal",
+        "This is a route parameter",
+        "This is a route splitter",
+        "This is a route link"
+      ],
+      "realAnswer": "This is a route parameter",
+      "userAnswer": ""
+    },
+    {
+      "question": "14. If you created a component called Dish and rendered it to the DOM, what type of element would be rendered?\n\n<code>\nfunction Dish() {\n  return <h1>Mac and Cheese</h1>;\n}\n\nReactDOM.render(<Dish />, document.getElementById(\"root\"));</code>",
+      "answerOption": [
+        "<code>div</code>",
+        "section",
+        "component",
+        "<code>h1</code>"
+      ],
+      "realAnswer": "<code>h1</code>",
+      "userAnswer": ""
+    },
+    {
+      "question": "15. What does this React element look like given the following function? (Alternative: Given the following code, what does this React element look like?)\n\n<code>\nReact.createElement(\"h1\", null, \"What's happening?\");</code>",
+      "answerOption": [
+        "<code><h1 props={null}>What's happening?</h1></code>",
+        "<code><h1>What's happening?</h1></code>",
+        "<code><h1 id=\"component\">What's happening?</h1></code>",
+        "<code><h1 id=\"element\">What's happening?</h1></code>"
+      ],
+      "realAnswer": "<code><h1>What's happening?</h1></code>",
+      "userAnswer": ""
+    },
+    {
+      "question": "16. What property do you need to add to the Suspense component in order to display a spinner or loading state?\n\n<code>\nfunction MyComponent() {\n  return (\n    <Suspense>\n      <div>\n        <Message />\n      </div>\n    </Suspense>\n  );\n}</code>",
+      "answerOption": ["lazy", "loading", "fallback", "spinner"],
+      "realAnswer": "fallback",
+      "userAnswer": ""
+    },
+    {
+      "question": "17. What do you call the message wrapped in curly braces below?\n\n<code>\nconst message = \"Hi there\";\nconst element = <p>{message}</p>;</code>",
+      "answerOption": [
+        "a JS function",
+        "a JS element",
+        "a JS expression",
+        "a JSX wrapper"
+      ],
+      "realAnswer": "a JS expression",
+      "userAnswer": ""
+    },
+    {
+      "question": "18. What can you use to handle code splitting?",
+      "answerOption": [
+        "<code>React.memo</code>",
+        "<code>React.split</code>",
+        "<code>React.lazy</code>",
+        "<code>React.fallback</code>"
+      ],
+      "realAnswer": "<code>React.lazy`",
+      "userAnswer": ""
+    },
+    {
+      "question": "19. When do you use `useLayoutEffect`?",
+      "answerOption": [
+        "to optimize for all devices",
+        "to complete the update",
+        "to change the layout of the screen",
+        "when you need the browser to paint before the effect runs"
+      ],
+      "realAnswer": "when you need the browser to paint before the effect runs",
+      "userAnswer": ""
+    },
+    {
+      "question": "20. What is the difference between the click behaviors of these two buttons (assuming that this.handleClick is bound correctly)?\n\n<code>\nA. <button onClick={this.handleClick}>Click Me</button>\nB. <button onClick={event => this.handleClick(event)}>Click Me</button></code>",
+      "answerOption": [
+        "Button A will not have access to the event object on click of the button.",
+        "Button B will not fire the handler this.handleClick successfully.",
+        "Button A will not fire the handler this.handleClick successfully.",
+        "There is no difference."
+      ],
+      "realAnswer": "There is no difference.",
+      "userAnswer": ""
+    },
+    {
+      "question": "21. How do you destructure the properties that are sent to the Dish component?\n\n<code>\nfunction Dish(props) {\n  return (\n    <h1>\n      {props.name} {props.cookingTime}\n    </h1>\n  );\n}</code>",
+      "answerOption": [
+        "<code>function Dish([name, cookingTime]) { return <h1>{name} {cookingTime}</h1>; }</code>",
+        "<code>function Dish({name, cookingTime}) { return <h1>{name} {cookingTime}</h1>; }</code>",
+        "<code>function Dish(props) { return <h1>{name} {cookingTime}</h1>; }</code>",
+        "<code>function Dish(...props) { return <h1>{name} {cookingTime}</h1>; }</code>"
+      ],
+      "realAnswer": "<code>function Dish({name, cookingTime}) { return <h1>{name} {cookingTime}</h1>; }`",
+      "userAnswer": ""
+    },
+    {
+      "question": "22. When might you use `React.PureComponent`?",
+      "answerOption": [
+        "when you do not want your component to have props",
+        "when you have sibling components that need to be compared",
+        "when you want a default implementation of `shouldComponentUpdate()</code>",
+        "when you do not want your component to have state"
+      ],
+      "realAnswer": "when you want a default implementation of `shouldComponentUpdate()`",
+      "userAnswer": ""
+    },
+    {
+      "question": "23. Why is it important to avoid copying the values of props into a component's state where possible?",
+      "answerOption": [
+        "because you should never mutate state",
+        "because `getDerivedStateFromProps()` is an unsafe method to use",
+        "because you want to allow a component to update in response to changes in the props",
+        "because you want to allow data to flow back up to the parent"
+      ],
+      "realAnswer": "because you want to allow a component to update in response to changes in the props",
+      "userAnswer": ""
+    },
+    {
+      "question": "24. What is the children prop?",
+      "answerOption": [
+        "a property that adds child components to state",
+        "a property that lets you pass components as data to other components",
+        "a property that lets you set an array as a property",
+        "a property that lets you pass data to child elements"
+      ],
+      "realAnswer": "a property that lets you pass components as data to other components",
+      "userAnswer": ""
+    },
+    {
+      "question": "25. Which attribute do you use to replace innerHTML in the browser DOM?",
+      "answerOption": [
+        "injectHTML",
+        "dangerouslySetInnerHTML",
+        "weirdSetInnerHTML",
+        "strangeHTML"
+      ],
+      "realAnswer": "dangerouslySetInnerHTML",
+      "userAnswer": ""
+    },
+    {
+      "question": "26. Which of these terms commonly describe React applications?",
+      "answerOption": ["declarative", "integrated", "closed", "imperative"],
+      "realAnswer": "declarative",
+      "userAnswer": ""
+    },
+    {
+      "question": "27. When using webpack, why would you need to use a loader?",
+      "answerOption": [
+        "to put together physical file folders",
+        "to preprocess files",
+        "to load external data",
+        "to load the website into everyone's phone"
+      ],
+      "realAnswer": "to preprocess files",
+      "userAnswer": ""
+    },
+    {
+      "question": "28. A representation of a user interface that is kept in memory and is synced with the \"real\" DOM is called what?",
+      "answerOption": ["virtual DOM", "DOM", "virtual elements", "shadow DOM"],
+      "realAnswer": "virtual DOM",
+      "userAnswer": ""
+    },
+    {
+      "question": "29. You have written the following code but nothing is rendering. How do you fix this problem?\n\n<code>\nconst Heading = () => {\n  <h1>Hello!</h1>;\n};</code>",
+      "answerOption": [
+        "Add a render function.",
+        "Change the curly braces to parentheses or add a return statement before the `h1` tag.",
+        "Move the `h1` to another component.",
+        "Surround the `h1` in a `div`."
+      ],
+      "realAnswer": "Change the curly braces to parentheses or add a return statement before the `h1` tag.",
+      "userAnswer": ""
+    },
+    {
+      "question": "Q30. To create a constant in JavaScript, which keyword do you use?",
+      "answerOption": ["const", "let", "constant", "var"],
+      "realAnswer": "const",
+      "userAnswer": ""
+    },
+    {
+      "question": "Q31. What do you call a React component that catches JavaScript errors anywhere in the child component tree?",
+      "answerOption": [
+        "error bosses",
+        "error catchers",
+        "error helpers",
+        "error boundaries"
+      ],
+      "realAnswer": "error boundaries",
+      "userAnswer": ""
+    },
+    {
+      "question": "Q32. In which lifecycle method do you make requests for data in a class component?",
+      "answerOption": [
+        "constructor",
+        "componentDidMount",
+        "componentWillReceiveProps",
+        "componentWillMount"
+      ],
+      "realAnswer": "componentDidMount",
+      "userAnswer": ""
+    },
+    {
+      "question": "Q33. React components are composed to create a user interface. How are components composed?",
+      "answerOption": [
+        "by putting them in the same file",
+        "by nesting components",
+        "with webpack",
+        "with code splitting"
+      ],
+      "realAnswer": "by nesting components",
+      "userAnswer": ""
+    },
+    {
+      "question": "Q34. All React components must act like _____ with respect to their props.",
+      "answerOption": [
+        "monads",
+        "pure functions",
+        "recursive functions",
+        "higher-order functions"
+      ],
+      "realAnswer": "pure functions",
+      "userAnswer": ""
+    },
+    {
+      "question": "Q35. Why might you use a ref?",
+      "answerOption": [
+        "to directly access the DOM node",
+        "to refer to another JS file",
+        "to call a function",
+        "to bind the function"
+      ],
+      "realAnswer": "to directly access the DOM node",
+      "userAnswer": ""
+    },
+    {
+      "question": "Q36. What is `[e.target.id]` called in the following code snippet?\n\n<code>\nhandleChange(e) {\n  this.setState({ [e.target.id]: e.target.value })\n}</code>",
+      "answerOption": [
+        "a computed property name",
+        "a set value",
+        "a dynamic key",
+        "a JSX code string"
+      ],
+      "realAnswer": "a dynamic key",
+      "userAnswer": ""
+    },
+    {
+      "question": "Q37. What is the name of this component?\n\n<code>\nclass Clock extends React.Component {\n  render() {\n    return <h1>Look at the time: {time}</h1>;\n  }\n}</code>",
+      "answerOption": [
+        "Clock",
+        "It does not have a name prop.",
+        "React.Component",
+        "Component"
+      ],
+      "realAnswer": "Clock",
+      "userAnswer": ""
+    },
+    {
+      "question": "Q38. What is sent to an `Array.map()` function?",
+      "answerOption": [
+        "a callback function that is called once for each element in the array",
+        "the name of another array to iterate over",
+        "the number of times you want to call the function",
+        "a string describing what the function should do"
+      ],
+      "realAnswer": "a callback function that is called once for each element in the array",
+      "userAnswer": ""
+    },
+    {
+      "question": "Q39. Why is it a good idea to pass a function to `setState` instead of an object?",
+      "answerOption": [
+        "It provides better encapsulation.",
+        "It makes sure that the object is not mutated.",
+        "It automatically updates a component.",
+        "<code>setState</code> is asynchronous and might result in out of sync values."
+      ],
+      "realAnswer": "<code>setState</code> is asynchronous and might result in out of sync values.",
+      "userAnswer": ""
+    },
+    {
+      "question": "Q40. What package contains the render() function that renders a React element tree to the DOM?",
+      "answerOption": [
+        "<code>React</code>",
+        "<code>ReactDOM</code>",
+        "<code>Render</code>",
+        "<code>DOM</code>"
+      ],
+      "realAnswer": "<code>ReactDOM</code>",
+      "userAnswer": ""
+    },
+    {
+      "question": "Q41. How do you set a default value for an uncontrolled form field?",
+      "answerOption": [
+        "Use the `value` property.",
+        "Use the `defaultValue` property.",
+        "Use the `default` property.",
+        "It assigns one automatically."
+      ],
+      "realAnswer": "Use the `defaultValue` property.",
+      "userAnswer": ""
+    },
+    {
+      "question": "Q42. What do you need to change about this code to get it to run?\n<code>js\nclass clock extends React.Component {\n  render() {\n    return <h1>Look at the time: {this.props.time}</h1>;\n  }\n}</code>",
+      "answerOption": [
+        "Add quotes around the return value",
+        "Remove `this</code>",
+        "Remove the render method",
+        "Capitalize `clock`"
+      ],
+      "comment": "Explanation: In JSX, lower-case tag names are considered to be HTML tags.\nRead [this article](https://reactjs.org/docs/jsx-in-depth.html#html-tags-vs.-react-components)]",
+      "realAnswer": "Capitalize `clock`",
+      "userAnswer": ""
+    },
+    {
+      "question": "Q43. Which Hook could be used to update the document's title?",
+      "answerOption": [
+        "<code>useEffect(function updateTitle() { document.title = name + ' ' + lastname; });</code>",
+        "<code>useEffect(() => { title = name + ' ' + lastname; });</code>",
+        "<code>useEffect(function updateTitle() { name + ' ' + lastname; });</code>",
+        "<code>useEffect(function updateTitle() { title = name + ' ' + lastname; });</code>"
+      ],
+      "realAnswer": "<code>useEffect(function updateTitle() { document.title = name + ' ' + lastname; });`",
+      "userAnswer": ""
+    },
+    {
+      "question": "Q44. What can you use to wrap Component imports in order to load them lazily?",
+      "answerOption": [
+        "<code>React.fallback</code>",
+        "<code>React.split</code>",
+        "<code>React.lazy</code>",
+        "<code>React.memo</code>"
+      ],
+      "realAnswer": "<code>React.lazy`",
+      "userAnswer": ""
+    },
+    {
+      "question": "Q45. How do you invoke setDone only when component mounts, using hooks?\n\n<code>\nfunction MyComponent(props) {\n  const [done, setDone] = useState(false);\n\n  return <h1>Done: {done}</h1>;\n}</code>",
+      "answerOption": [
+        "<code>useEffect(() => { setDone(true); });</code>",
+        "<code>useEffect(() => { setDone(true); }, []);</code>",
+        "<code>useEffect(() => { setDone(true); }, [setDone]);</code>",
+        "<code>useEffect(() => { setDone(true); }, [done, setDone]);</code>"
+      ],
+      "realAnswer": "<code>useEffect(() => { setDone(true); }, []);`",
+      "userAnswer": ""
+    },
+    {
+      "question": "Q46. Which of the following click event handlers will allow you to pass the name of the person to be hugged?\n\n<code>\nclass Huggable extends React.Component {\n  hug(id) {\n    console.log(\"hugging \" + id);\n  }\n\n  render() {\n    let name = \"kitteh\";\n    let button = // Missing Code\n    return button;\n  }\n}</code>",
+      "answerOption": [
+        "<code><button onClick={(name) => this.hug(name)}>Hug Button</button></code>",
+        "<code><button onClick={this.hug(e, name)}>Hug Button</button></code>",
+        "<code><button onClick={(e) => hug(e, name)}>Hug Button</button></code>",
+        "<code><button onClick={() => this.hug(name)}>Hug Button</button></code>"
+      ],
+      "realAnswer": "<code><button onClick={() => this.hug(name)}>Hug Button</button></code>",
+      "userAnswer": ""
+    },
+    {
+      "question": "Q47. Currently, `handleClick` is being called instead of passed as a reference. How do you fix this?\n\n<code>\n<button onClick={this.handleClick()}>Click this</button></code>",
+      "answerOption": [
+        "<code><button onClick={this.handleClick.bind(handleClick)}>Click this</button></code>",
+        "<code><button onClick={handleClick()}>Click this</button></code>",
+        "<code><button onClick={this.handleClick}>Click this</button></code>",
+        "<code><button onclick={this.handleClick}>Click this</button></code>"
+      ],
+      "realAnswer": "<code><button onClick={this.handleClick}>Click this</button></code>",
+      "userAnswer": ""
+    },
+    {
+      "question": "Q48. Which answer best describes a function component?",
+      "answerOption": [
+        "A function component is the same as a class component.",
+        "A function component accepts a single props object and returns a React element.",
+        "A function component is the only way to create a component.",
+        "A function component is required to create a React component."
+      ],
+      "realAnswer": "A function component accepts a single props object and returns a React element.",
+      "userAnswer": ""
+    },
+    {
+      "question": "Q49. Which library does the `fetch()` function come from?",
+      "answerOption": [
+        "FetchJS",
+        "ReactDOM",
+        "No library. `fetch()` is supported by most browsers.",
+        "React"
+      ],
+      "realAnswer": "No library. `fetch()` is supported by most browsers.",
+      "userAnswer": ""
+    },
+    {
+      "question": "Q50. What will happen when this useEffect Hook is executed, assuming name is not already equal to John?\n\n<code>\nuseEffect(() => {\n  setName(\"John\");\n}, [name]);</code>",
+      "answerOption": [
+        "It will cause an error immediately.",
+        "It will execute the code inside the function, but only after waiting to ensure that no other component is accessing the name variable.",
+        "It will update the value of name once and not run again until name is changed from the outside.",
+        "It will cause an infinite loop."
+      ],
+      "realAnswer": "It will update the value of name once and not run again until name is changed from the outside.",
+      "userAnswer": ""
+    },
+    {
+      "question": "Q51. Which choice will not cause a React component to rerender?",
+      "answerOption": [
+        "if the component calls <code>this.setState(...)</code>",
+        "the value of one of the component's props changes",
+        "if the component calls <code>this.forceUpdate()</code>",
+        "one of the component's siblings rerenders"
+      ],
+      "realAnswer": "one of the component's siblings rerenders",
+      "userAnswer": ""
+    },
+    {
+      "question": "Q52. You have created a new method in a class component called handleClick, but it is not working. Which code is missing?\n\n<code>\nclass Button extends React.Component{\n\n  constructor(props) {\n    super(props);\n    // Missing line\n  }\n\n  handleClick() {...}\n}</code>",
+      "answerOption": [
+        "<code>this.handleClick.bind(this);</code>",
+        "<code>props.bind(handleClick);</code>",
+        "<code>this.handleClick.bind();</code>",
+        "<code>this.handleClick = this.handleClick.bind(this);</code>"
+      ],
+      "realAnswer": "<code>this.handleClick = this.handleClick.bind(this);</code>",
+      "userAnswer": ""
+    },
+    {
+      "question": "Q53. React does not render two sibling elements unless they are wrapped in a fragment. Below is one way to render a fragment. What is the shorthand for this?\n\n<code>\n<React.Fragment>\n  <h1>Our Staff</h1>\n  <p>Our staff is available 9-5 to answer your questions</p>\n</React.Fragment></code>",
+      "answerOption": [
+        "A\n\n<code>\n<...>\n  <h1>Our Staff</h1>\n  <p>Our staff is available 9-5 to answer your questions</p>\n</...></code>",
+        "B\n\n<code>\n<//>\n  <h1>Our Staff</h1>\n  <p>Our staff is available 9-5 to answer your questions</p>\n<///></code>",
+        "C\n\n<code>\n<>\n  <h1>Our Staff</h1>\n  <p>Our staff is available 9-5 to answer your questions</p>\n</></code>",
+        "D\n\n<code>\n<Frag>\n  <h1>Our Staff</h1>\n  <p>Our staff is available 9-5 to answer your questions</p>\n</Frag></code>"
+      ],
+      "realAnswer": "C\n\n<code>\n<>\n  <h1>Our Staff</h1>\n  <p>Our staff is available 9-5 to answer your questions</p>\n</></code>",
+      "userAnswer": ""
+    },
+    {
+      "question": "Q54. If you wanted to display the count state value in the component, what do you need to add to the curly braces in the `h1`?\n\n<code>\nclass Ticker extends React.component {\n  constructor(props) {\n    super(props);\n    this.state = { count: 0 };\n  }\n  render() {\n    return <h1>{}</h1>;\n  }\n}</code>",
+      "answerOption": ["this.state.count", "count", "state", "state.count"],
+      "realAnswer": "this.state.count",
+      "userAnswer": ""
+    },
+    {
+      "question": "Q55. Per the following code, when is the Hello component displayed?\n\n<code>\nconst greeting = isLoggedIn ? <Hello /> : null;</code>",
+      "answerOption": [
+        "never",
+        "when `isLoggedIn` is true",
+        "when a user logs in",
+        "when the Hello function is called"
+      ],
+      "realAnswer": "when `isLoggedIn` is true",
+      "userAnswer": ""
+    },
+    {
+      "question": "Q56. In the following code block, what type is orderNumber?\n\n<code>\nReactDOM.render(<Message orderNumber=\"16\" />, document.getElementById(\"root\"));</code>",
+      "answerOption": ["string", "boolean", "object", "number"],
+      "realAnswer": "string",
+      "userAnswer": ""
+    },
+    {
+      "question": "Q57. You have added a style property to the `h1` but there is an unexpected token error when it runs. How do you fix this?\n\n<code>\nconst element = <h1 style={ backgroundColor: \"blue\" }>Hi</h1>;</code>",
+      "answerOption": [
+        "<code>const element = <h1 style=\"backgroundColor: \"blue\"\"}>Hi</h1>;</code>",
+        "<code>const element = <h1 style={{backgroundColor: \"blue\"}}>Hi</h1>;</code>",
+        "<code>const element = <h1 style={blue}>Hi</h1>;</code>",
+        "<code>const element = <h1 style=\"blue\">Hi</h1>;</code>"
+      ],
+      "realAnswer": "<code>const element = <h1 style={{backgroundColor: \"blue\"}}>Hi</h1>;`",
+      "userAnswer": ""
+    },
+    {
+      "question": "Q58. Which function is used to update state variables in a React class component?",
+      "answerOption": [
+        "<code>replaceState</code>",
+        "<code>refreshState</code>",
+        "<code>updateState</code>",
+        "<code>setState</code>"
+      ],
+      "realAnswer": "<code>setState</code>",
+      "userAnswer": ""
+    },
+    {
+      "question": "Q59. Consider the following component. What is the default color for the star?\n\n<code>\nconst Star = ({ selected = false }) => (\n  <Icon color={selected ? \"red\" : \"grey\"} />\n);</code>",
+      "answerOption": ["black", "red", "grey", "white"],
+      "realAnswer": "grey",
+      "userAnswer": ""
+    },
+    {
+      "question": "Q60. Which answer best describes a function component?(Not sure answer)",
+      "answerOption": [
+        "A function component is the same as a class component.",
+        "A function component accepts a single props object and returns a React element",
+        "A function component is the only way to create a component",
+        "A function component is required to create a React component"
+      ],
+      "realAnswer": "A function component accepts a single props object and returns a React element.",
+      "userAnswer": ""
+    },
+    {
+      "question": "Q61.Which library does the fetch() function come from?",
+      "answerOption": [
+        "FetchJS",
+        "ReactDOM",
+        "No library. fetch() is supported by most browsers.",
+        "React"
+      ],
+      "realAnswer": "No library. fetch() is supported by most browsers.",
+      "userAnswer": "",
+      "comment": ""
+    },
+    {
+      "question": "Q62.What is the difference between the click behaviors of these two buttons(assuming that this.handleClick is bound correctly)\n\n<code>\n  A. <button onClick=this.handleClick>Click Me</button>\n  B. <button onClick={event => this.handleClick(event)}>Click Me</button></code>",
+      "answerOption": [
+        "Button A will not have access to the event object on click of the button",
+        "Button A will not fire the handler this.handleClick successfully",
+        "There is no difference",
+        "Button B will not fire the handler this.handleClick successfully"
+      ],
+      "realAnswer": "Button A will not fire the handler this.handleClick successfully",
+      "userAnswer": ""
+    },
+    {
+      "question": "Q63.What will happen when this useEffect Hook is executed, assuming name is not already equal to John?\n\n<code>\nuseEffect(() => {\n  setName(\"John\");\n}, [name]);</code>",
+      "answerOption": [
+        "It will cause an error immediately.",
+        "It will execute the code inside the function, but only after waiting to ensure that no other component is accessing the name variable.",
+        "It will update the value of name once and not run again until name is changed from the outside.",
+        "It will cause an infinite loop."
+      ],
+      "realAnswer": "It will update the value of name once and not run again until name is changed from the outside.",
+      "userAnswer": ""
+    },
+    {
+      "question": "Q64. How would you add to this code, from React Router, to display a component called About?\n\n<code>\n<Route path=\"/:id\" /></code>",
+      "answerOption": [
+        "<code>\n<Route path=\"/:id\">\n  {\" \"}\n  <About />\n</Route></code>",
+        "<code>\n<Route path=\"/tid\" about={Component} /></code>",
+        "<code>\n<Route path=\"/:id\" route={About} /></code>",
+        "<code>\n<Route>\n  <About path=\"/:id\" />\n</Route></code>"
+      ],
+      "realAnswer": "<code>\n<Route path=\"/:id\">\n  {\" \"}\n  <About />\n</Route></code>",
+      "userAnswer": ""
+    },
+    {
+      "question": "Q65. Which class-based component is equivalent to this function component?\n\n<code>\nconst Greeting ({ name }) > <h1>Hello {name}!</h1>;</code>",
+      "answerOption": [
+        "<code>\nclass Greeting extends React.Component {\n  constructor() {\n    return <h1>Hello (this.props.name)!</h1>;\n  }\n}</code>",
+        "<code>\n    class Greeting extends React.Component { <h1>Hello {this.props.name}!</h1>; }</code>",
+        "<code>\n   class Greeting extends React.Component { return <h1>Hello (this.props.name) 1</h1>; }</code>",
+        "<code>\nclass Greeting extends React.Component ( render({ name }) {return <h1>Hello (name)} !</h1>;})</code>"
+      ],
+      "realAnswer": "<code>\n    class Greeting extends React.Component { <h1>Hello {this.props.name}!</h1>; }</code>",
+      "userAnswer": ""
+    },
+    {
+      "question": "Q66. Give the code below, what does the second argument that is sent to the render function describe?\n\n<code>\nReactDOM.render(\n  <h1>Hi<h1>,\n    document.getElementById('root')\n)</code>",
+      "answerOption": [
+        "where the React element should be added to the DOM",
+        "where to call the function",
+        "where the root component is",
+        "where to create a new JavaScript file"
+      ],
+      "realAnswer": "where the React element should be added to the DOM",
+      "userAnswer": ""
+    },
+    {
+      "question": "Q67. Why should you use React Router's Link component instead of a basic `<a>` tag in React?",
+      "answerOption": [
+        "The link component allows the user to use the browser's `Back` button.",
+        "There is no difference--the `Link` component is just another name for the `<a>` tag.",
+        "The `<a>` tag will cause an error when used in React.",
+        "The `<a>` tag triggers a full page reload, while the `Link` component does not."
+      ],
+      "realAnswer": "The `<a>` tag triggers a full page reload, while the `Link` component does not.",
+      "userAnswer": ""
+    },
+    {
+      "question": "Q68. What is the first argument, `x`, that is sent to the `createElement` function?\n\n<code>\nReact.createElement(x, y, z);</code>",
+      "answerOption": [
+        "the element that should be created",
+        "the order in which this element should be placed on the page",
+        "the properties of the element",
+        "data that should be displayed in the element"
+      ],
+      "realAnswer": "the element that should be created",
+      "userAnswer": ""
+    },
+    {
+      "question": "Q69. Which class-based lifecycle method would be called at the same time as this effect Hook?\n\n<code>\nuseEffect(() => {\n  // do things\n}, []);</code>",
+      "answerOption": [
+        "componentWillUnmount",
+        "componentDidMount",
+        "render",
+        "componentDidUpdate"
+      ],
+      "realAnswer": "componentDidMount",
+      "userAnswer": ""
+    },
+    {
+      "question": "Q70. Given the code below, what does the second argument that is sent to the render function describe?\n\n<code>\nReactDOM.render(<h1>Hi</h1>, document.getElementById(\"root\"));</code>",
+      "answerOption": [
+        "where the React element should be added to the DOM",
+        "where to call the function",
+        "where the root component is",
+        "where to create a new JavaScript file"
+      ],
+      "realAnswer": "where the React element should be added to the DOM",
+      "userAnswer": ""
+    },
+    {
+      "question": "Q71. What is the first argument, x, that is sent to the `createElement` function?\n\n`React.createElement(x,y,z);</code>",
+      "answerOption": [
+        "the element that should be created",
+        "the order in which this element should be placed on the page",
+        "the properties of the element",
+        "data that should be displayed in the element."
+      ],
+      "realAnswer": "the element that should be created",
+      "userAnswer": ""
+    },
+    {
+      "question": "Q72. What is the name of this component?\n\n<code>\nclass Comp extends React.Component {\n  render() {\n    return <h1>Look at the time: {time}</h1>;\n  }\n}</code>",
+      "answerOption": ["Comp", "h1", "React.Component", "Component"],
+      "comment": "This question might be an updated version of Q37.",
+      "realAnswer": "Comp",
+      "userAnswer": ""
+    },
+    {
+      "question": "Q73. When using a portal, what is the first argument?\n\n<code>\nReactDOM.createPortal(x, y);</code>",
+      "answerOption": [
+        "the current state",
+        "the element to render",
+        "the App component",
+        "the page"
+      ],
+      "comment": "**Explanation:**\nFrom official docs: [Portals](https://reactjs.org/docs/portals.html)",
+      "realAnswer": "the element to render",
+      "userAnswer": ""
+    },
+    {
+      "question": "Q74. What is `setCount`?\n\n<code>\nconst [count, setCount] = useState(0);</code>",
+      "answerOption": [
+        "the initial state value",
+        "a variable",
+        "a state object",
+        "a function to update the state"
+      ],
+      "realAnswer": "a function to update the state",
+      "userAnswer": ""
+    }
+  ]
+}
